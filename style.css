@@ -44,7 +44,7 @@ body {
   height: 450px;
   background-color: white;
   border-radius: 5px;
-  border: 1px solid #fc427b;
+  border: 1px solid #353b48;
 }
 .episodeDiv:hover {
   border: 1px solid #1b9cfc;
@@ -66,7 +66,7 @@ body {
   height: 35px;
   margin: 0px;
   color: white;
-  background-color: #fc427b;
+  background-color: #353b48;
 }
 .episodeImg {
   width: 300px;
