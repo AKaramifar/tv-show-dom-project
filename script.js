@@ -24,7 +24,7 @@ function makePageForEpisodes(episodeList, searchType) {
   let innerHTMLString = "";  
   if(episodeList.length == 0){
     innerHTMLString = `
-    <h5>Sorry Nothing to show ! ! !<h5>`;
+    <h4>Sorry Nothing to show ! ! !<h4>`;
   }
   else{
     innerHTMLString = "";
