@@ -158,7 +158,7 @@ function highlight() {
   });
   // console.log(replacedObject)
   // console.log(allEpisodes)
-  searchTextResualt.textContent = `Resualt: ${totalFoundObject} | Total: ${allEpisodes.length}`;
+  searchTextResualt.textContent = `Result: ${totalFoundObject} | Total: ${allEpisodes.length}`;
 }
 searchTBEl.addEventListener("input", () => {
   if (searchTBEl.value != "") {
