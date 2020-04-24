@@ -22,6 +22,13 @@ function makePageForEpisodes(episodeList, searchType) {
   // Access to main Div element with 'root' id
   const rootElem = document.getElementById("root");
   let innerHTMLString = "";  
+  if(episodeList.length == 0){
+    innerHTMLString = `
+    <h1>Sorry Nothing to show ! ! !<h1>`;
+  }
+  else{
+    innerHTMLString = "";
+  }
   episodeList.forEach((episode) => {
     // forEach loop to reed one by one objects in main array and show on document
     // I used innerHtml and parameters to create elements in body        
