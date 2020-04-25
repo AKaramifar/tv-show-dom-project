@@ -67,10 +67,22 @@ function getIndexes(stringToSearch, mainString, objectIndex, key) {
   }
   return findState;
 }
+function nameAndSummaryHighlight(objectContainer, nameOrSummary, nameOrSummaryKey, index){
+  let nameOrSummaryDividedArray = [];
+  let  indexList = [];
+  indexList = FoundIndexArray.filter((el) => el.objectIndexes == index && el.objectKey == nameOrSummaryKey).map((el) => el.foundStrIndex);
+  indexList.forEach((strIndex, i) => {
+    nameOrSummaryDividedArray.push(nameOrSummary.slice(i == 0 ? 0 : indexList[i - 1] + 1, strIndex + searchTBEl.value.length));
+  });
+  nameOrSummaryDividedArray.push(nameOrSummary.slice(indexList[indexList.length - 1] + searchTBEl.value.length));
+  nameOrSummaryDividedArray.forEach((element, i) => {
+    (i < nameOrSummaryDividedArray.length - 1) ? (nameOrSummaryDividedArray[i] = `${nameOrSummaryDividedArray[i].slice(0, nameOrSummaryDividedArray[i].length - searchTBEl.value.length)}<strong class="highlight">${nameOrSummaryDividedArray[i].slice(nameOrSummaryDividedArray[i].length - searchTBEl.value.length)}</strong>`) : {};
+  });
+  (nameOrSummaryKey == 'name') ? objectContainer.name = nameOrSummaryDividedArray.join("") : objectContainer.summary = nameOrSummaryDividedArray.join("");       
+}
 
 function highlight() {
-  myAllEpisodes = getAllEpisodes();  
-  FoundIndexArray = [];  
+  myAllEpisodes = getAllEpisodes();     
   myAllEpisodes.forEach((episode, index) => {
     episode.name = `${episode.name} - ${titleCodeGenerator(episode)}`;
     episode.summary = `${pureSummary(episode)}`;
@@ -79,33 +91,13 @@ function highlight() {
     if (nameState || summaryState) {
       let objectContainer = episode;      
       totalFoundObject += 1;
-      // ----------------------------------- name --------------------------------------------------------------------
+      // ------------------------------------------------------ Name Highlight ---------------------------------------------------------
       if (nameState) {        
-        let nameDividedArray = [];
-        let indexList = FoundIndexArray.filter((el) => el.objectIndexes == index && el.objectKey == "name").map((el) => el.foundStrIndex);
-        indexList.forEach((strIndex, i) => {
-          nameDividedArray.push(objectContainer.name.slice(i == 0 ? 0 : indexList[i - 1] + 1, strIndex + searchTBEl.value.length));
-        });
-        nameDividedArray.push(
-          objectContainer.name.slice(indexList[indexList.length - 1] + searchTBEl.value.length)
-        );
-        nameDividedArray.forEach((element, i) => {
-          (i < nameDividedArray.length - 1)? (nameDividedArray[i] = `${nameDividedArray[i].slice(0, nameDividedArray[i].length - searchTBEl.value.length)}<strong class="highlight">${nameDividedArray[i].slice(nameDividedArray[i].length - searchTBEl.value.length)}</strong>`) : {};
-        });
-        objectContainer.name = nameDividedArray.join("");                
+        nameAndSummaryHighlight(objectContainer, objectContainer.name, 'name', index);            
       }
-      // ----------------------------------- summary --------------------------------------------------------------------
+      // ------------------------------------------------------ Summary Highlight ------------------------------------------------------
       if (summaryState) {        
-        let summaryDividedArray = [];
-        indexList = FoundIndexArray.filter((el) => el.objectIndexes == index && el.objectKey == "summary").map((el) => el.foundStrIndex);
-        indexList.forEach((strIndex, i) => {
-          summaryDividedArray.push(objectContainer.summary.slice(i == 0 ? 0 : indexList[i - 1] + 1, strIndex + searchTBEl.value.length));
-        });
-        summaryDividedArray.push(objectContainer.summary.slice(indexList[indexList.length - 1] + searchTBEl.value.length));
-        summaryDividedArray.forEach((element, i) => {
-          (i < summaryDividedArray.length - 1) ? (summaryDividedArray[i] = `${summaryDividedArray[i].slice(0, summaryDividedArray[i].length - searchTBEl.value.length)}<strong class="highlight">${summaryDividedArray[i].slice(summaryDividedArray[i].length - searchTBEl.value.length)}</strong>`): {};
-        });
-        objectContainer.summary = summaryDividedArray.join("");
+        nameAndSummaryHighlight(objectContainer, objectContainer.summary, 'summary', index);        
       }
       replacedObject.push(objectContainer);      
     }
@@ -116,6 +108,7 @@ searchTBEl.addEventListener("input", () => {
   if (searchTBEl.value != "") {    
     highlight();
     makePageForEpisodes(replacedObject, 'search');
+    FoundIndexArray = []; 
     totalFoundObject = 0;    
     replacedObject = [];        
   } else {    
