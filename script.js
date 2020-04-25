@@ -61,12 +61,7 @@ function getIndexes(stringToSearch, mainString, objectIndex, key) {
   mainString = mainString.toLowerCase();
   stringToSearch = stringToSearch.toLowerCase();
   while ((newIndex = mainString.indexOf(stringToSearch, startIndex)) > -1) {
-    FoundIndexArray.push({
-      objectIndexes: objectIndex,
-      objectKey: key,
-      foundStrIndex: newIndex,
-      keywordLength: stringToSearch.length,
-    });
+    FoundIndexArray.push({objectIndexes: objectIndex, objectKey: key, foundStrIndex: newIndex, keywordLength: stringToSearch.length});
     startIndex = newIndex + stringToSearchLen;
     findState = true;
   }
@@ -78,8 +73,9 @@ function highlight() {
   FoundIndexArray = [];  
   myAllEpisodes.forEach((episode, index) => {
     episode.name = `${episode.name} - ${titleCodeGenerator(episode)}`;
+    episode.summary = `${pureSummary(episode)}`;
     let nameState = getIndexes(searchTBEl.value, `${episode.name}`, index, "name");
-    let summaryState = getIndexes(searchTBEl.value, `${pureSummary(episode)}`, index, "summary");        
+    let summaryState = getIndexes(searchTBEl.value, `${episode.summary}`, index, "summary");        
     if (nameState || summaryState) {
       let objectContainer = episode;      
       totalFoundObject += 1;
@@ -99,8 +95,7 @@ function highlight() {
         objectContainer.name = nameDividedArray.join("");                
       }
       // ----------------------------------- summary --------------------------------------------------------------------
-      if (summaryState) {
-        objectContainer.summary = `${pureSummary(objectContainer)}`;
+      if (summaryState) {        
         let summaryDividedArray = [];
         indexList = FoundIndexArray.filter((el) => el.objectIndexes == index && el.objectKey == "summary").map((el) => el.foundStrIndex);
         indexList.forEach((strIndex, i) => {
@@ -115,16 +110,14 @@ function highlight() {
       replacedObject.push(objectContainer);      
     }
   });  
-  searchTextResualt.textContent = `Result: ${totalFoundObject} | Total: ${allEpisodes.length}`;
+  searchTextResualt.textContent = `Result: ${totalFoundObject} | Total: ${myAllEpisodes.length}`;
 }
 searchTBEl.addEventListener("input", () => {
-  if (searchTBEl.value != "") {
-    console.clear();
+  if (searchTBEl.value != "") {    
     highlight();
     makePageForEpisodes(replacedObject, 'search');
     totalFoundObject = 0;    
-    replacedObject = [];    
-    myAllEpisodes = [];
+    replacedObject = [];        
   } else {    
     makePageForEpisodes(allEpisodes, 'load');
   }
