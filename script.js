@@ -109,11 +109,11 @@ searchTBEl.addEventListener("input", () => {
   if (searchTBEl.value != "") {    
     highlight(searchTBEl);
     makePageForEpisodes(replacedObject, 'search');
-    FoundIndexArray = []; 
-    totalFoundObject = 0;    
+    FoundIndexArray = [];     
     replacedObject = [];        
   } else {    
     makePageForEpisodes(allEpisodes, 'load');
+    searchTextResualt.textContent = 'Result';
   }
 });
 
