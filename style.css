@@ -53,6 +53,7 @@ body {
 }
 
 #searchResualt{  
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;     
@@ -98,10 +99,10 @@ body {
     padding-bottom: 20px; 
   }
   .searchDivFirstChild-CSS{
-    justify-content: start;
+    justify-content: center;
   }
   .searchDivSecondChild-CSS{    
-    justify-content: start;   
+    justify-content: center;   
   }
 }
 @media only screen and (min-width: 900px) {
