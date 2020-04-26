@@ -100,9 +100,11 @@ body {
     padding-bottom: 20px; 
   }
   .searchDivFirstChild-CSS{
+    width: 100%;
     justify-content: center;
   }
   .searchDivSecondChild-CSS{    
+    width: 100%;
     justify-content: center;   
   }
 }
