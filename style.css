@@ -21,6 +21,7 @@ body {
   width: 50%;  
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 0;
 }
 .searchDivSecondChild-CSS{
