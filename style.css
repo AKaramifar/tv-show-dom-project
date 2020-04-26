@@ -97,8 +97,7 @@ body {
   }
   #searchDiv{
     height: 144px;
-    display: block;   
-    padding-bottom: 20px; 
+    display: block;       
   }
   .searchDivFirstChild-CSS{
     height: 50%;
