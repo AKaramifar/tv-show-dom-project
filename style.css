@@ -15,7 +15,7 @@ body {
   width: 90%;  
   margin: 20px 5% 20px 5%;
   box-shadow: 0px 0px 5px  #3B3B98;
-  border-radius: 5px;
+  border-radius: 5px;  
 }
 .searchDivFirstChild-CSS{
   width: 50%;  
@@ -55,8 +55,7 @@ body {
 #searchResualt{  
   display: flex;
   align-items: center;
-  justify-content: center;  
-  width: 200px;  
+  justify-content: center;     
   height: 40px;
   font-family: "Bebas Neue", cursive;
   font-size: 15;
@@ -94,7 +93,8 @@ body {
     margin-left: 5px;
   }
   #searchDiv{
-    display: list-item;    
+    display: list-item;   
+    padding-bottom: 20px; 
   }
   .searchDivFirstChild-CSS{
     justify-content: start;
