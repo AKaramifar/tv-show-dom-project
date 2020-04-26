@@ -86,11 +86,11 @@ body {
     grid-template-columns: auto;    
   }
   #searchInput{
-    width: 150px;
+    width: 200px;
     margin-left: 5px;
   }
   .EpisodeNameList-CSS{
-    width: 150px;
+    width: 250px;
     margin-left: 5px;
   }
   #searchDiv{
