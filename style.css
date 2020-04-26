@@ -95,7 +95,7 @@ body {
     margin-left: 5px;
   }
   #searchDiv{
-    display: list-item;   
+    display: block;   
     padding-bottom: 20px; 
   }
   .searchDivFirstChild-CSS{
