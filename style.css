@@ -33,7 +33,7 @@ body {
 }
 .EpisodeNameList-CSS{  
   width: 300px;
-  height: 30px;
+  height: 35px;
   margin: 20px;
   border-radius: 3px;
   font-family: "Bebas Neue", cursive;
@@ -91,10 +91,15 @@ body {
     grid-template-columns: auto;    
   }
   #searchInput{
-    width: 320px;    
+    width: 320px;  
+    margin: 15px 0px 25px 20px;  
+  }
+  #searchResualt{  
+    margin: 15px 0px 25px 0px;
   }
   .EpisodeNameList-CSS{
     width: 90%;        
+    margin: 30px auto 15px auto;
   }
   #searchDiv{
     height: 144px;
