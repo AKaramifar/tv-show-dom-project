@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TV Show Project | Afshin (AKaramifar)</title>
     <link href="style.css" rel="stylesheet" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <script src="https://kit.fontawesome.com/a511542277.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />    
   </head>
 
   <body>
     <div id="searchDiv">
-      <input id="searchInput" type="text" placeholder="search your keyword . . ."/> 
-      <p id="searchResualt" >Result</p>
+      <div id="searchDivFirstChild" class="searchDivFirstChild-CSS">
+        <input id="searchInput" type="text" placeholder="search your keyword . . ."/> 
+        <p id="searchResualt" >Result</p>
+      </div>
+      <div id="searchDivSecondChild" class="searchDivSecondChild-CSS">
+        <select id="EpisodeNameList" class="EpisodeNameList-CSS">
+          // Episode name list          
+        </select>
+      </div>
     </div>
     
     <div id="root">
+      // episode list
     </div>
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->

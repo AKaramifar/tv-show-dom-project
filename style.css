@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 body {
   background-color: #f1f2f6;
   margin: 0px;
@@ -10,12 +10,35 @@ body {
 
 #searchDiv {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #353b48;
   width: 90%;  
   margin: 20px 5% 20px 5%;
   box-shadow: 0px 0px 5px  #3B3B98;
   border-radius: 5px;
+}
+.searchDivFirstChild-CSS{
+  width: 50%;  
+  display: flex;
+  justify-content: center;
+}
+.searchDivSecondChild-CSS{
+  width: 50%;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.EpisodeNameList-CSS{
+  width: 300px;
+  height: 35px;
+  border-radius: 3px;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 1px;
+  border: none;
+}
+.options-CSS{
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 1px;
 }
 #searchInput {
   margin: 20px;
@@ -24,8 +47,9 @@ body {
   text-indent: 5px;
   border-radius: 3px;
   border: none;  
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 1px;
+  font-size: 13px;
 }
 
 #searchResualt{  
@@ -55,11 +79,28 @@ body {
   display: grid;
   grid-gap: 20px;
   justify-content: center;
-  border-radius: 5px;
+  border-radius: 5px;  
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
   #root {
-    grid-template-columns: auto;
+    grid-template-columns: auto;    
+  }
+  #searchInput{
+    width: 150px;
+    margin-left: 5px;
+  }
+  .EpisodeNameList-CSS{
+    width: 150px;
+    margin-left: 5px;
+  }
+  #searchDiv{
+    display: list-item;    
+  }
+  .searchDivFirstChild-CSS{
+    justify-content: start;
+  }
+  .searchDivSecondChild-CSS{    
+    justify-content: start;   
   }
 }
 @media only screen and (min-width: 900px) {

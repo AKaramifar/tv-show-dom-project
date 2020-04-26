@@ -3,6 +3,7 @@ let allEpisodes;
 function setup() {
   allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes, 'load');
+  makeComboBoxOfEpisodesName(allEpisodes);
 }
 // Title generator function that have a array parameter , episode for example name:"Winter is Coming"  and episod:1 season:1 so episod resual should be "Winter is Coming - S01E01"
 function titleCodeGenerator(episode) {
@@ -42,6 +43,21 @@ function makePageForEpisodes(episodeList, searchType) {
   });
   rootElem.innerHTML = innerHTMLString;
 }
+
+let episodeNameListEl = document.getElementById("EpisodeNameList");
+function makeComboBoxOfEpisodesName(episodeList){  
+  let innerHTMLString = `<option class="options-CSS" value="allEepisodes">All Episodes</option>`;
+  episodeList.forEach((episode) => {
+    // forEach loop to reed one by one objects in main array and show on document
+    // I used innerHtml and parameters to create elements in body        
+    innerHTMLString += `<option class="options-CSS" value="${episode.name}">${episode.name + ' - ' + titleCodeGenerator(episode)}</option>`    
+  });
+  episodeNameListEl.innerHTML = innerHTMLString;
+}
+
+episodeNameListEl.addEventListener('change', ()=>{  
+  (episodeNameListEl.value == "allEepisodes") ? makePageForEpisodes(allEpisodes, 'load') : makePageForEpisodes(allEpisodes.filter(Episodes=> episodeNameListEl.value == Episodes.name),'load');
+});
 
 let searchTBEl = document.querySelector("#searchInput");
 let searchTextResualt = document.querySelector("#searchResualt");
