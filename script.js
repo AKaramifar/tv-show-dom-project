@@ -118,7 +118,7 @@ function highlight(elementParameterToSearch) {
       replacedObject.push(objectContainer);      
     }
   });  
-  searchTextResualt.textContent = `Result: ${totalFoundObject} | Total: ${myAllEpisodes.length}`;
+  searchTextResualt.textContent = `${totalFoundObject} | ${myAllEpisodes.length}`;
 }
 
 searchTBEl.addEventListener("input", () => {
