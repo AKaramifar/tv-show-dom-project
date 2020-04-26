@@ -63,6 +63,7 @@ body {
   color: white;  
   border: none;
   letter-spacing: 3px;
+  background-color: tomato;
 }
 .highlight{
   background-color: #12CBC4;
@@ -85,11 +86,11 @@ body {
     grid-template-columns: auto;    
   }
   #searchInput{
-    width: auto;
+    width: 200px;
     margin-left: 5px;
   }
   .EpisodeNameList-CSS{
-    width: 100%;
+    width: 300px;
     margin-left: 5px;
   }
   #searchDiv{
