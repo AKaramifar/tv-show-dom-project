@@ -108,10 +108,10 @@ function makePageForEpisodes(episodeList, searchType) {
     nothingToShow_El.textContent = 'Sorry Nothing to show ! ! !';
     mainDiv_El.appendChild(nothingToShow_El);
   }
-
-  episodeList.forEach((episode, index) => {
-    // forEach loop to reed one by one objects in main array and show on document
-    // I used innerHtml and parameters to create elements in body      
+  
+  // forEach loop to reed one by one objects in main array and show on document
+  episodeList.forEach((episode, index) => {    
+    // Create all element for show episodes in page
     let episodeDiv_El = document.createElement('div');
     let episodeTitle_El = document.createElement('p');
     let episodeImg_El = document.createElement('img');
