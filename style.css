@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap");
 
-body {
+.body_CSS {
   background-color: #f1f2f6;
   margin: 0px;
   width: 100%;
   height: 100%;
 }
 
-#searchDiv {
+.searchDiv_CSS {
   display: flex;
   justify-content: space-between;
   background-color: #353b48;
@@ -17,21 +17,21 @@ body {
   box-shadow: 0px 0px 5px  #3B3B98;
   border-radius: 5px;  
 }
-.searchDivFirstChild-CSS{
+.searchDivSelect_CSS{
   width: 50%;  
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
 }
-.searchDivSecondChild-CSS{
+.searchDivInput_CSS{
   width: 50%;  
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
 }
-.EpisodeNameList-CSS{  
+.episodeListSelect_CSS{  
   width: 300px;
   height: 35px;
   margin: 20px;
@@ -41,11 +41,11 @@ body {
   text-indent: 5px;
   border: none;
 }
-.options-CSS{
+.opthin_CSS{
   font-family: "Bebas Neue", cursive;
   letter-spacing: 1px;
 }
-#searchInput {
+.episodeInput_CSS {
   margin: 20px;
   width: 300px;
   height: 30px;
@@ -57,7 +57,7 @@ body {
   font-size: 13px;
 }
 
-#searchResualt{  
+.searchResualt_CSS{  
   width: 200px;
   display: flex;
   align-items: center;
@@ -70,12 +70,12 @@ body {
   border: none;
   letter-spacing: 3px;  
 }
-.highlight{
+.highlight_CSS{
   background-color: #12CBC4;
   border-radius: 3px;  
 }
 
-#root {
+.mainDiv_CSS {
   width: 90%;
   margin: 20px 5% 20px 5%;
   box-shadow: 0px 0px 5px  #3B3B98;
@@ -87,67 +87,67 @@ body {
   border-radius: 5px;  
 }
 @media only screen and (max-width: 600px) {
-  #root {
+  .mainDiv_CSS {
     grid-template-columns: auto;    
   }
-  #searchInput{
+  .episodeInput_CSS{
     width: 320px;  
     margin: 15px 0px 25px 20px;  
   }
-  #searchResualt{  
-    margin: 15px 0px 25px 0px;
+  .searchResualt_CSS{  
+    margin: 15px 0px 25px 10px;
   }
-  .EpisodeNameList-CSS{
+  .episodeListSelect_CSS{
     width: 90%;        
     margin: 30px auto 15px auto;
   }
-  #searchDiv{
+  .searchDiv_CSS{
     height: 144px;
     display: block;       
   }
-  .searchDivFirstChild-CSS{
+  .searchDivInput_El{
     height: 50%;
     width: 100%;
     justify-content: center;
   }
-  .searchDivSecondChild-CSS{  
+  .searchDivSelect_CSS{  
     height: 50%;  
     width: 100%;
     justify-content: center;   
   }
 }
 @media only screen and (min-width: 900px) {
-  #root {
+  .mainDiv_CSS {
     grid-template-columns: auto auto;
   }
 }
 @media only screen and (min-width: 1200px) {
-  #root {
+  .mainDiv_CSS {
     grid-template-columns: auto auto auto;
   }
 }
 @media only screen and (min-width: 1450px) {
-  #root {
+  .mainDiv_CSS {
     grid-template-columns: auto auto auto auto;
   }
 }
 
-.episodeDiv {
+.episodeDiv_CSS {
   width: 320px;
   height: 460px;
   background-color: white;
   border-radius: 5px;
   border: 1px solid #353b48;
 }
-.episodeDiv:hover {
+.episodeDiv_CSS:hover {
   border: 1px solid #1b9cfc;
   cursor: pointer;
 }
-.episodeDiv:hover > .episodeTitle {
+.episodeDiv_CSS:hover > .episodeTitle_CSS {
   background-color: #1b9cfc;
 }
 
-.episodeTitle {
+.episodeTitle_CSS {
   font-family: "Bebas Neue", cursive;
   font-size: 15px;
   text-align: center;
@@ -161,17 +161,17 @@ body {
   color: white;
   background-color: #353b48;
 }
-.episodeImg {
+.episodeImg_CSS {
   width: 300px;
   margin: 15px 10px 10px 10px;
   border-radius: 5px;
 }
-.summaryLabel{
+.episodeSummaryLabel_CSS{
   font-family: "Hind", sans-serif;
   font-size: 13px;
   margin: 0px 10px;
 }
-.summary {
+.episodeSummary_CSS {
   width: 300px;
   margin: 0px 10px 10px 10px;
   font-stretch: expanded;

@@ -1,10 +1,90 @@
-//You can edit ALL of the code here
+// Declare Html Elements
+let body_El;
+let searchDiv_El;
+let searchDivSelect_El;
+let episodeListSelect_El;
+let searchDivInput_El;
+let episodeInput_El;
+let searchResualt_El;
+let mainDiv_El;
+let nothingToShow_El;
+
+// Declare Objects and arrays
 let allEpisodes;
+let FoundIndexArray = [];
+let replacedObject = [];
+
+// First function which will load in may page
 function setup() {
-  allEpisodes = getAllEpisodes();
+  allEpisodes = getAllEpisodes();  
+  myBody();
   makePageForEpisodes(allEpisodes, 'load');
   makeComboBoxOfEpisodesName(allEpisodes);
 }
+
+// myBody function will make all elements in body
+function myBody(){
+  // Create all elements
+  body_El = document.querySelector('body');  
+  searchDiv_El = document.createElement('div');
+  searchDivSelect_El = document.createElement('div');
+  episodeListSelect_El = document.createElement('select');
+  searchDivInput_El = document.createElement('div');
+  episodeInput_El = document.createElement('input');
+  searchResualt_El = document.createElement('p');
+  mainDiv_El = document.createElement('div');
+  nothingToShow_El = document.createElement('h4');
+
+  // Declare all id and css method for elements
+  body_El.id = 'body_JS';
+  body_El.className = 'body_CSS'
+  searchDiv_El.id = 'searchDiv_JS';
+  searchDiv_El.className = 'searchDiv_CSS';
+  searchDivSelect_El.id = 'searchDivSelect_JS';
+  searchDivSelect_El.className = 'searchDivSelect_CSS';
+  episodeListSelect_El.id = 'episodeListSelect_JS';
+  episodeListSelect_El.className = 'episodeListSelect_CSS';
+  searchDivInput_El.id = 'searchDivInput_JS';
+  searchDivInput_El.className = 'searchDivInput_CSS';
+  episodeInput_El.id = 'episodeInput_JS';
+  episodeInput_El.className = 'episodeInput_CSS';
+  episodeInput_El.type = 'text';
+  episodeInput_El.placeholder = 'Search your keyword . . .';
+  searchResualt_El.id = 'searchResualt_JS';
+  searchResualt_El.className = 'searchResualt_CSS';
+  mainDiv_El.id = 'mainDiv_JS';
+  mainDiv_El.className = 'mainDiv_CSS';
+  nothingToShow_El.id = 'nothingToShow_JS';
+  nothingToShow_El.className = 'nothingToShow_CSS';
+  
+  // Add all elements to body
+  body_El.appendChild(searchDiv_El);
+  body_El.appendChild(mainDiv_El);
+  searchDiv_El.appendChild(searchDivSelect_El);
+  searchDiv_El.appendChild(searchDivInput_El);
+  searchDivSelect_El.appendChild(episodeListSelect_El);
+  searchDivInput_El.appendChild(episodeInput_El);
+  searchDivInput_El.appendChild(searchResualt_El);
+  
+  // Select element on change event search in my object and find episod that his name is equal with value of select 
+  episodeListSelect_El.addEventListener('change', ()=>{  
+    (episodeListSelect_El.value == "allEepisodes") ? makePageForEpisodes(allEpisodes, 'load') : makePageForEpisodes(allEpisodes.filter(Episodes=> episodeListSelect_El.value == Episodes.name),'load');
+  });
+
+  // Input element on input event serach in my object and find all keyword that I wrote in input 
+  episodeInput_El.addEventListener("input", () => {
+    if (episodeInput_El.value != "") {    
+      highlight(episodeInput_El);
+      makePageForEpisodes(replacedObject, 'search');
+      FoundIndexArray = [];     
+      replacedObject = [];        
+    } else {    
+      makePageForEpisodes(allEpisodes, 'load');
+      searchResualt_El.textContent = 'Result';
+    }
+  });
+}
+
 // Title generator function that have a array parameter , episode for example name:"Winter is Coming"  and episod:1 season:1 so episod resual should be "Winter is Coming - S01E01"
 function titleCodeGenerator(episode) {
   let seasonCode = episode.season < 10 ? "0" + episode.season : episode.season;
@@ -20,49 +100,63 @@ function pureSummary(episode) {
 }
 // Function for make main body of project
 function makePageForEpisodes(episodeList, searchType) {
-  // Access to main Div element with 'root' id
-  const rootElem = document.getElementById("root");
-  let innerHTMLString = "";  
+  mainDiv_El.innerHTML = '';
+  nothingToShow_El.id = 'nothingToShow_JS';
+
   if(episodeList.length == 0){
-    innerHTMLString = `
-    <h4>Sorry Nothing to show ! ! !<h4>`;
+    nothingToShow_El.textContent = 'Sorry Nothing to show ! ! !';
+    mainDiv_El.appendChild(nothingToShow_El);
   }
-  else{
-    innerHTMLString = "";
-  }
-  episodeList.forEach((episode) => {
+
+  episodeList.forEach((episode, index) => {
     // forEach loop to reed one by one objects in main array and show on document
-    // I used innerHtml and parameters to create elements in body        
-    innerHTMLString += `
-    <div id="${titleCodeGenerator(episode)}" class="episodeDiv">
-      <p class="episodeTitle">${(searchType == 'search') ? episode.name : episode.name + ' - ' + titleCodeGenerator(episode)}</p>
-      <img class="episodeImg" src=${episode.image.medium}>
-      <strong class="summaryLabel">Summary:</strong><br>
-      <p class="summary">${pureSummary(episode)}</p>
-    </div>`;
-  });
-  rootElem.innerHTML = innerHTMLString;
+    // I used innerHtml and parameters to create elements in body      
+    let episodeDiv_El = document.createElement('div');
+    let episodeTitle_El = document.createElement('p');
+    let episodeImg_El = document.createElement('img');
+    let episodeSummaryLabel_El = document.createElement('strong');
+    let episodeSummary_El = document.createElement('p');
+
+    episodeDiv_El.id = `episode_${index}_JS`;
+    episodeDiv_El.className = 'episodeDiv_CSS';
+    episodeTitle_El.id = `episodeTitle_${index}_JS`;
+    episodeTitle_El.className = 'episodeTitle_CSS';
+    episodeImg_El.id = `episodeImg_${index}_JS`;
+    episodeImg_El.className = 'episodeImg_CSS';
+    episodeSummaryLabel_El.id = `episodeSummaryLabel_${index}_Js`;
+    episodeSummaryLabel_El.className = 'episodeSummaryLabel_CSS';
+    episodeSummary_El.id = `episodeSummary_${index}_Js`;
+    episodeSummary_El.className = 'episodeSummary_CSS';
+
+    episodeTitle_El.innerHTML = `${(searchType == 'search') ? episode.name : episode.name + ' - ' + titleCodeGenerator(episode)}`;
+    episodeImg_El.src = `${episode.image.medium}`;
+    episodeSummaryLabel_El.textContent = `Summary`;
+    episodeSummary_El.innerHTML = `${pureSummary(episode)}`;
+    
+    mainDiv_El.appendChild(episodeDiv_El);
+    episodeDiv_El.appendChild(episodeTitle_El)
+    episodeDiv_El.appendChild(episodeImg_El)
+    episodeDiv_El.appendChild(episodeSummaryLabel_El)
+    episodeDiv_El.appendChild(episodeSummary_El)    
+  });  
 }
 
-let episodeNameListEl = document.getElementById("EpisodeNameList");
-function makeComboBoxOfEpisodesName(episodeList){  
-  let innerHTMLString = `<option class="options-CSS" value="allEepisodes">All Episodes</option>`;
-  episodeList.forEach((episode) => {
-    // forEach loop to reed one by one objects in main array and show on document
-    // I used innerHtml and parameters to create elements in body        
-    innerHTMLString += `<option class="options-CSS" value="${episode.name}">${episode.name + ' - ' + titleCodeGenerator(episode)}</option>`    
-  });
-  episodeNameListEl.innerHTML = innerHTMLString;
+function makeComboBoxOfEpisodesName(episodeList){ 
+  let options_JS = document.createElement('option'); 
+  options_JS.id = `allEpisodes_JS`;
+  options_JS.className = `option_CSS`;
+  options_JS.value = `allEepisodes`;
+  options_JS.textContent = `All Episodes`;
+  episodeListSelect_JS.appendChild(options_JS);  
+  episodeList.forEach((episode, index) => {
+    options_JS = document.createElement('option');
+    options_JS.id = `opthin_${index}_JS`;
+    options_JS.className = `opthin_CSS`;
+    options_JS.value = `${episode.name}`;
+    options_JS.textContent = `${episode.name + ' - ' + titleCodeGenerator(episode)}`
+    episodeListSelect_JS.appendChild(options_JS);
+  });    
 }
-
-episodeNameListEl.addEventListener('change', ()=>{  
-  (episodeNameListEl.value == "allEepisodes") ? makePageForEpisodes(allEpisodes, 'load') : makePageForEpisodes(allEpisodes.filter(Episodes=> episodeNameListEl.value == Episodes.name),'load');
-});
-
-let searchTBEl = document.querySelector("#searchInput");
-let searchTextResualt = document.querySelector("#searchResualt");
-let FoundIndexArray = [];
-let replacedObject = [];
 
 function getIndexes(stringToSearch, mainString, objectIndex, key) {
   let findState = false;
@@ -81,6 +175,7 @@ function getIndexes(stringToSearch, mainString, objectIndex, key) {
   }
   return findState;
 }
+
 function nameAndSummaryHighlight(objectContainer, nameOrSummary, nameOrSummaryKey, index, elementParameterToSearch){
   let nameOrSummaryDividedArray = [];
   let  indexList = [];
@@ -90,7 +185,7 @@ function nameAndSummaryHighlight(objectContainer, nameOrSummary, nameOrSummaryKe
   });
   nameOrSummaryDividedArray.push(nameOrSummary.slice(indexList[indexList.length - 1] + elementParameterToSearch.value.length));
   nameOrSummaryDividedArray.forEach((element, i) => {
-    (i < nameOrSummaryDividedArray.length - 1) ? (nameOrSummaryDividedArray[i] = `${nameOrSummaryDividedArray[i].slice(0, nameOrSummaryDividedArray[i].length - elementParameterToSearch.value.length)}<strong class="highlight">${nameOrSummaryDividedArray[i].slice(nameOrSummaryDividedArray[i].length - elementParameterToSearch.value.length)}</strong>`) : {};
+    (i < nameOrSummaryDividedArray.length - 1) ? (nameOrSummaryDividedArray[i] = `${nameOrSummaryDividedArray[i].slice(0, nameOrSummaryDividedArray[i].length - elementParameterToSearch.value.length)}<strong class="highlight_CSS">${nameOrSummaryDividedArray[i].slice(nameOrSummaryDividedArray[i].length - elementParameterToSearch.value.length)}</strong>`) : {};
   });
   (nameOrSummaryKey == 'name') ? objectContainer.name = nameOrSummaryDividedArray.join("") : objectContainer.summary = nameOrSummaryDividedArray.join("");       
 }
@@ -118,19 +213,7 @@ function highlight(elementParameterToSearch) {
       replacedObject.push(objectContainer);      
     }
   });  
-  searchTextResualt.textContent = `${totalFoundObject} | ${myAllEpisodes.length}`;
+  searchResualt_El.textContent = `${totalFoundObject} | ${myAllEpisodes.length}`;
 }
-
-searchTBEl.addEventListener("input", () => {
-  if (searchTBEl.value != "") {    
-    highlight(searchTBEl);
-    makePageForEpisodes(replacedObject, 'search');
-    FoundIndexArray = [];     
-    replacedObject = [];        
-  } else {    
-    makePageForEpisodes(allEpisodes, 'load');
-    searchTextResualt.textContent = 'Result';
-  }
-});
 
 window.onload = setup;
