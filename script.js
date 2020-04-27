@@ -52,6 +52,7 @@ function myBody(){
   episodeInput_El.placeholder = 'Search your keyword . . .';
   searchResualt_El.id = 'searchResualt_JS';
   searchResualt_El.className = 'searchResualt_CSS';
+  searchResualt_El.textContent = 'Resualt';
   mainDiv_El.id = 'mainDiv_JS';
   mainDiv_El.className = 'mainDiv_CSS';
   nothingToShow_El.id = 'nothingToShow_JS';
