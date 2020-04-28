@@ -39,8 +39,8 @@
               #2e71ff,
               #2e71ff 10px,
               #2e71ff 0px,
-              #6697ff 11px              
-                );
+              #5289ff 11px              
+                );              
 }
 .searchDivSelect_CSS{
   width: 50%;  
@@ -66,10 +66,7 @@
   text-indent: 5px;
   border: none;
 }
-.opthin_CSS{
-  font-family: "Bebas Neue", cursive;
-  letter-spacing: 1px;
-}
+
 .episodeInput_CSS {
   margin: 20px;
   width: 300px;
@@ -89,14 +86,14 @@
   justify-content: center;     
   height: 40px;
   font-family: "Bebas Neue", cursive;
-  font-size: 15;
+  font-size: 18px;
   border-radius: 3px;
   color: white;  
   border: none;
   letter-spacing: 3px;  
 }
 .highlight_CSS{
-  background-color: #1b9cfc;
+  background-color: #ff4757;
   border-radius: 3px;  
 }
 
@@ -164,28 +161,31 @@
   height: 460px;
   background-color: #1f2227;
   color: white;
-  border-radius: 5px;
+  border-radius: 0px 5px 5px 5px;
   border: 1px solid #1f2227;
   animation: FadeIn 1s;
   transition: 200ms;
 }
-.episodeDiv_CSS:hover {
-  /* border: 1px solid #1b9cfc; */
+.episodeDiv_CSS:hover {  
   cursor: pointer;
   transform: scale(1.01); 
   transition: 200ms;
-  box-shadow: 0px 0px 0px 2px #e67e22;
+  box-shadow: 0px 0px 0px 2px #EE5A24;
 }
+.episodeDiv_CSS:hover > .episodeTitle_CSS {  
+  color: #eccc68;
+}
+
 
 .episodeTitle_CSS {
   font-family: "Bebas Neue", cursive;
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
-  border-top-left-radius: 3px;
+  border-left: 5px solid #2ed573;  
   border-top-right-radius: 3px;
   letter-spacing: 1px;
-  width: 320px;
+  width: 315px;
   height: 35px;
   margin: 0px;
   color: white;
@@ -193,7 +193,7 @@
 }
 .episodeImg_CSS {
   width: 300px;
-  margin: 0px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   border-radius: 5px;
 }
 .episodeSummaryLabel_CSS{
