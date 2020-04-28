@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap");
 
 .body_CSS {
-  background-color: #160e2b;
+  background-color: #191919;
   margin: 0px;
   width: 100%;
   height: 100%;
@@ -11,7 +11,8 @@
 .searchDiv_CSS {
   display: flex;
   justify-content: space-between;
-  background-color: #4429b8;
+  background-color: #1b9cfc;
+  /* border: 0.5px solid #1b9cfc; */
   width: 90%;  
   margin: 20px 5% 20px 5%;  
   border-radius: 5px;  
@@ -70,7 +71,7 @@
   letter-spacing: 3px;  
 }
 .highlight_CSS{
-  background-color: #12CBC4;
+  background-color: #1b9cfc;
   border-radius: 3px;  
 }
 
@@ -135,10 +136,10 @@
 .episodeDiv_CSS {
   width: 320px;
   height: 460px;
-  background-color: #353b48;
+  background-color: #202329;
   color: white;
   border-radius: 5px;
-  border: 1px solid #353b48;
+  border: 1px solid #202329;
 }
 .episodeDiv_CSS:hover {
   border: 1px solid #1b9cfc;
@@ -160,7 +161,7 @@
   height: 35px;
   margin: 0px;
   color: white;
-  background-color: #353b48;
+  background-color: #202329;
 }
 .episodeImg_CSS {
   width: 300px;
