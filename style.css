@@ -1,21 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap");
-
+@keyframes FadeIn{
+  from{
+      opacity: 0;
+  }
+  to{
+      opacity: 1
+  }
+}
 .body_CSS {
-  background-color: #191919;
+  background-color: #1a1d21;
   margin: 0px;
   width: 100%;
   height: 100%;
+  animation: FadeIn 1s;
+  overflow: none;
 }
-
+.body_CSS:hover::-webkit-scrollbar-thumb{
+  background-color: rgb(163, 163, 163);
+  
+}
+::-webkit-scrollbar{
+  width: 10px;  
+}
+::-webkit-scrollbar-thumb{
+  background-color: #2e71ff;
+  border-radius: 5px;
+}
 .searchDiv_CSS {
   display: flex;
   justify-content: space-between;
-  background-color: #1b9cfc;
   /* border: 0.5px solid #1b9cfc; */
   width: 90%;  
   margin: 20px 5% 20px 5%;  
   border-radius: 5px;  
+  background: repeating-linear-gradient(
+                45deg,
+              #2e71ff,
+              #2e71ff 10px,
+              #2e71ff 0px,
+              #6697ff 11px              
+                );
 }
 .searchDivSelect_CSS{
   width: 50%;  
@@ -48,7 +73,7 @@
 .episodeInput_CSS {
   margin: 20px;
   width: 300px;
-  height: 30px;
+  height: 35px;
   text-indent: 5px;
   border-radius: 3px;
   border: none;  
@@ -85,6 +110,7 @@
   grid-gap: 20px;
   justify-content: center;
   border-radius: 5px;  
+  transition: transform .1s;
 }
 @media only screen and (max-width: 600px) {
   .mainDiv_CSS {
@@ -136,18 +162,20 @@
 .episodeDiv_CSS {
   width: 320px;
   height: 460px;
-  background-color: #202329;
+  background-color: #1f2227;
   color: white;
   border-radius: 5px;
-  border: 1px solid #202329;
+  border: 1px solid #1f2227;
+  animation: FadeIn 1s;
+  transition: 200ms;
 }
 .episodeDiv_CSS:hover {
-  border: 1px solid #1b9cfc;
+  /* border: 1px solid #1b9cfc; */
   cursor: pointer;
+  transform: scale(1.01); 
+  transition: 200ms;
+  box-shadow: 0px 0px 0px 2px #e67e22;
 }
-/* .episodeDiv_CSS:hover > .episodeTitle_CSS {
-  background-color: #1b9cfc;
-} */
 
 .episodeTitle_CSS {
   font-family: "Bebas Neue", cursive;
@@ -180,3 +208,4 @@
   font-family: "Hind", sans-serif;
   font-size: 13px;
 }
+

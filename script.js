@@ -119,7 +119,7 @@ function makePageForEpisodes(episodeList, searchType) {
     let episodeSummary_El = document.createElement('p');
 
     episodeDiv_El.id = `episode_${index}_JS`;
-    episodeDiv_El.className = 'episodeDiv_CSS';
+    episodeDiv_El.className = 'episodeDiv_CSS';    
     episodeTitle_El.id = `episodeTitle_${index}_JS`;
     episodeTitle_El.className = 'episodeTitle_CSS';
     episodeImg_El.id = `episodeImg_${index}_JS`;
