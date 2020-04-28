@@ -30,7 +30,6 @@
 .searchDiv_CSS {
   display: flex;
   justify-content: space-between;
-  /* border: 0.5px solid #1b9cfc; */
   width: 90%;  
   margin: 20px 5% 20px 5%;  
   border-radius: 5px;  
@@ -93,7 +92,7 @@
   letter-spacing: 3px;  
 }
 .highlight_CSS{
-  background-color: #ff4757;
+  background-color: #2e71ff;
   border-radius: 3px;  
 }
 
@@ -172,10 +171,6 @@
   transition: 200ms;
   box-shadow: 0px 0px 0px 2px #EE5A24;
 }
-.episodeDiv_CSS:hover > .episodeTitle_CSS {  
-  color: #eccc68;
-}
-
 
 .episodeTitle_CSS {
   font-family: "Bebas Neue", cursive;
