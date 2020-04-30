@@ -46,8 +46,8 @@ function getAllEpisodes(){
     }
     else{
       allEpisodesList = JSON.parse(JSON.stringify(allEpisodesList));      
-      makePageForEpisodes(allEpisodesList.filter(ep => ep.showId == 1), 'load');
-      makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));      
+      makePageForEpisodes(allEpisodesList.filter(ep => ep.showId == showsListSelect_El.value), 'load');
+      makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == showsListSelect_El.value));      
     }  
   }
   getEpisodes();
