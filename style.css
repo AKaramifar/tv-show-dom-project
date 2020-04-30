@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Marmelad&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Scada&display=swap');
 @keyframes FadeIn{
   from{
       opacity: 0;
@@ -16,6 +18,7 @@
   animation: FadeIn 1s;
   overflow: none;
 }
+
 ::-webkit-scrollbar{
   width: 5px;  
 }
@@ -50,9 +53,17 @@
   margin: 20px;
   border-radius: 3px;
   font-family: "Bebas Neue", cursive;
-  letter-spacing: 1px;
+  font-size: 15px;
+  background-color: #1a1d2159;
+  color: white;
+  letter-spacing: 2px;
   text-indent: 5px;
   border: none;
+}
+.showsListSelect_CSS *{
+  letter-spacing: 5px;
+  color: #1a1d21;
+  background-color: #ffffff;
 }
 .episodeDivSelect_CSS{
   width: 33.333333%;  
@@ -73,25 +84,40 @@
   height: 35px;
   margin: 20px;
   border-radius: 3px;
+  background-color: #1a1d2159;
+  color: white;
   font-family: "Bebas Neue", cursive;
-  letter-spacing: 1px;
+  font-size: 15px;
+  letter-spacing: 2px;
   text-indent: 5px;
   border: none;
+}
+.episodeListSelect_CSS *{  
+  letter-spacing: 5px;
+  text-indent: 5px;
+  color: #1a1d21;
+  background-color: #ffffff;
 }
 
 .episodeInput_CSS {
   margin: 20px;
-  width: 300px;
+  width: 60%;
   height: 35px;
   text-indent: 5px;
   border-radius: 3px;
   border: none;  
+  background-color: #1a1d2159;
+  color: white;
   font-family: "Bebas Neue", cursive;
-  letter-spacing: 1px;
-  font-size: 13px;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+.episodeInput_CSS::-webkit-input-placeholder{
+  color: white;
 }
 
 .searchResualt_CSS{  
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;     
@@ -120,6 +146,9 @@
   transition: transform .1s;
 }
 @media only screen and (max-width: 600px) {
+  .lds-roller{
+    margin-left: 40%;
+  }
   .mainDiv_CSS {
     grid-template-columns: auto;    
   }
@@ -212,20 +241,25 @@
   border-radius: 5px;
 }
 .episodeSummaryDiv_CSS{
+  font-family: 'Marmelad', sans-serif;
   height: 180px;  
   overflow: auto;
 }
 .episodeSummaryLabel_CSS{
-  font-family: "Hind", sans-serif;
-  font-size: 13px;
+  font-family: 'Scada', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
   margin: 0px 10px;
 }
 .episodeSummary_CSS {
   width: 300px;
   margin: 0px 10px 10px 10px;
+  margin-top: 8px;
   font-stretch: expanded;
-  font-family: "Hind", sans-serif;
-  font-size: 13px;
+  font-family: 'Scada', sans-serif;
+  font-size: 14px;
+  align-items: justify;
+  line-height: 1.5em;
   overflow: auto;
 }
 

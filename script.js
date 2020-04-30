@@ -41,7 +41,7 @@ function getAllEpisodes(){
       .catch(error => console.log(error))
     }
     else{
-      allEpisodesList = JSON.parse(JSON.stringify(allEpisodesList));
+      allEpisodesList = JSON.parse(JSON.stringify(allEpisodesList));      
       makePageForEpisodes(allEpisodesList.filter(ep => ep.showId == 1), 'load');
       makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));      
     }  
@@ -166,6 +166,9 @@ function pureSummary(episode) {
 }
 // Function for make main body of project
 function makePageForEpisodes(episodeList, searchType) {
+
+  let loading_El = document.querySelector('#ldsRoller_JS')
+  loading_El.style.display = 'none';
   mainDiv_El.innerHTML = '';
   nothingToShow_El.id = 'nothingToShow_JS';
 
