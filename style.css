@@ -16,12 +16,8 @@
   animation: FadeIn 1s;
   overflow: none;
 }
-.body_CSS:hover::-webkit-scrollbar-thumb{
-  background-color: rgb(163, 163, 163);
-  
-}
 ::-webkit-scrollbar{
-  width: 10px;  
+  width: 5px;  
 }
 ::-webkit-scrollbar-thumb{
   background-color: #2e71ff;
@@ -41,15 +37,32 @@
               #5289ff 11px              
                 );              
 }
-.searchDivSelect_CSS{
-  width: 50%;  
+.showsDivSelect_CSS{
+  width: 33.333333%;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.showsListSelect_CSS{
+  width: 300px;
+  height: 35px;
+  margin: 20px;
+  border-radius: 3px;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 1px;
+  text-indent: 5px;
+  border: none;
+}
+.episodeDivSelect_CSS{
+  width: 33.333333%;  
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
 }
 .searchDivInput_CSS{
-  width: 50%;  
+  width: 33.333333%;  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +92,6 @@
 }
 
 .searchResualt_CSS{  
-  /* width: 200px; */
   display: flex;
   align-items: center;
   justify-content: center;     
@@ -98,8 +110,7 @@
 
 .mainDiv_CSS {
   width: 90%;
-  margin: 20px 5% 20px 5%;
-  /* box-shadow: 0px 0px 5px  #3B3B98; */
+  margin: 20px 5% 20px 5%;  
   padding-top: 20px;
   padding-bottom: 20px;
   display: grid;
@@ -114,27 +125,36 @@
   }
   .episodeInput_CSS{
     width: 60%;  
-    margin: 15px 0px 25px 0px;  
+    margin: 15px 0px 15px 0px;  
   }
   .searchResualt_CSS{  
     width: 30%;
-    margin: 15px 0px 25px 0px;
+    margin: 15px 0px 15px 0px;
   }
   .episodeListSelect_CSS{
     width: 90%;        
-    margin: 30px auto 15px auto;
+    margin: 15px auto 15px auto;
+  }
+  .showsListSelect_CSS{
+    width: 90%;        
+    margin: 15px auto 15px auto;
   }
   .searchDiv_CSS{
-    height: 144px;
+    height: 216px;
     display: block;       
   }
-  .searchDivInput_CSS{
-    height: 50%;
+  .showsDivSelect_CSS{
+    height: 33.333333%;
     width: 100%;
     justify-content: center;
   }
-  .searchDivSelect_CSS{  
-    height: 50%;  
+  .searchDivInput_CSS{
+    height: 33.333333%;
+    width: 100%;
+    justify-content: center;
+  }
+  .episodeDivSelect_CSS{  
+    height: 33.333333%;  
     width: 100%;
     justify-content: center;   
   }
@@ -191,6 +211,10 @@
   margin: 10px 10px 10px 10px;
   border-radius: 5px;
 }
+.episodeSummaryDiv_CSS{
+  height: 180px;  
+  overflow: auto;
+}
 .episodeSummaryLabel_CSS{
   font-family: "Hind", sans-serif;
   font-size: 13px;
@@ -202,5 +226,6 @@
   font-stretch: expanded;
   font-family: "Hind", sans-serif;
   font-size: 13px;
+  overflow: auto;
 }
 
