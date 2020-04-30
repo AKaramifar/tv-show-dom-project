@@ -38,7 +38,11 @@ function getAllEpisodes(){
         showsId++;
         getEpisodes();       
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error);
+        showsId++;
+        getEpisodes(); 
+      })
     }
     else{
       allEpisodesList = JSON.parse(JSON.stringify(allEpisodesList));      
