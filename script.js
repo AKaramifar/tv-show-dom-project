@@ -303,14 +303,19 @@ function nameAndSummaryHighlight(objectContainer, nameOrSummary, nameOrSummaryKe
 }
 
 function highlight(episodeList, elementParameterToSearch) {
-  let totalFoundObject = 0;     
-  let summaryState = false; 
+  let totalFoundObject = 0;
+  let nameState = false;     
+  let summaryState = false;
+  let nameContainer = '';
+  let summaryContainer = '' ;
   episodeList.forEach((episode, index) => {
-    let nameContainer = `${episode.name} - ${titleCodeGenerator(episode)}`;        
-    let nameState = getIndexes(elementParameterToSearch.value, `${nameContainer}`, index, "name");
-    if(episode.name != null){
-      let summaryContainer = `${pureSummary(episode)}`;    
-      summaryState = getIndexes(elementParameterToSearch.value, `${summaryContainer}`, index, "summary");        
+    nameContainer = `${episode.name} - ${titleCodeGenerator(episode)}`;        
+    nameState = getIndexes(elementParameterToSearch.value, `${nameContainer}`, index, "name");
+    if(episode.summary != null){
+      if(episode.summary != ''){
+        summaryContainer = `${pureSummary(episode)}`;    
+        summaryState = getIndexes(elementParameterToSearch.value, `${summaryContainer}`, index, "summary");        
+      }
     }
     else{
       summaryState = false;
