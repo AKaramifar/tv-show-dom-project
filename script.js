@@ -187,7 +187,9 @@ function makePageForEpisodes(episodeList, searchType) {
     // Create all element for show episodes in page
     let episodeDiv_El = document.createElement('div');
     let episodeTitle_El = document.createElement('p');
+    let episodeImgDiv_El = document.createElement('div')
     let episodeImg_El = document.createElement('img');
+    let episodeImgP_El = document.createElement('p');
     let episodeSummaryLabel_El = document.createElement('strong');
     let episodeSummaryDiv_El = document.createElement('div');
     let episodeSummary_El = document.createElement('p');
@@ -196,6 +198,10 @@ function makePageForEpisodes(episodeList, searchType) {
     episodeDiv_El.className = 'episodeDiv_CSS';    
     episodeTitle_El.id = `episodeTitle_${index}_JS`;
     episodeTitle_El.className = 'episodeTitle_CSS';
+    episodeImgDiv_El.id = 'episodeImgDiv_JS';
+    episodeImgDiv_El.className = 'episodeImgDiv_CSS';
+    episodeImgP_El.id = 'episodeImgP_JS';
+    episodeImgP_El.className = 'episodeImgP_CSS';
     episodeImg_El.id = `episodeImg_${index}_JS`;
     episodeImg_El.className = 'episodeImg_CSS';
     episodeSummaryDiv_El.id = `episodeSummaryDiv_${index}_Js`;
@@ -207,16 +213,35 @@ function makePageForEpisodes(episodeList, searchType) {
     
 
     episodeTitle_El.innerHTML = `${(searchType == 'search') ? episode.name : episode.name + ' - ' + titleCodeGenerator(episode)}`;
-    episodeImg_El.src = `${episode.image.medium}`;
     episodeSummaryLabel_El.textContent = `Summary`;
-    episodeSummary_El.innerHTML = `${pureSummary(episode)}`;
+    if(episode.summary != null){
+      if (episode.summary != ''){
+        episodeSummary_El.innerHTML = `${pureSummary(episode)}`;
+      }
+      else{
+        episodeSummary_El.textContent = 'Nothing to show !!!';
+      }      
+    }
+    else{
+      episodeSummary_El.textContent = 'Nothing to show !!!';
+    }
+    
     
     mainDiv_El.appendChild(episodeDiv_El);
     episodeDiv_El.appendChild(episodeTitle_El)
-    episodeDiv_El.appendChild(episodeImg_El)
+    episodeDiv_El.appendChild(episodeImgDiv_El)
+    if(episode.image != null){
+      episodeImg_El.src = `${episode.image.medium}` 
+      episodeImgDiv_El.appendChild(episodeImg_El)
+    }
+    else{
+      episodeImgDiv_El.appendChild(episodeImgP_El)
+      episodeImgP_El.innerHTML = '   Image <br> Not Found!!!';    
+    }    
     episodeDiv_El.appendChild(episodeSummaryLabel_El)
     episodeDiv_El.appendChild(episodeSummaryDiv_El)
-    episodeSummaryDiv_El.appendChild(episodeSummary_El)    
+    episodeSummaryDiv_El.appendChild(episodeSummary_El)  
+      
   });    
 }
 function makeComboBoxOfShowsName(allShowsList){  
@@ -225,7 +250,7 @@ function makeComboBoxOfShowsName(allShowsList){
     options_JS.id = `showOption_${index}_JS`;
     options_JS.className = `showOption_CSS`;
     options_JS.value = `${episode.id}`;
-    options_JS.textContent = `${episode.name + ' - ' + titleCodeGenerator(episode)}`
+    options_JS.textContent = `${episode.name}`
     showsListSelect_El.appendChild(options_JS);
   });    
 }
@@ -278,12 +303,18 @@ function nameAndSummaryHighlight(objectContainer, nameOrSummary, nameOrSummaryKe
 }
 
 function highlight(episodeList, elementParameterToSearch) {
-  let totalFoundObject = 0;      
+  let totalFoundObject = 0;     
+  let summaryState = false; 
   episodeList.forEach((episode, index) => {
-    let nameContainer = `${episode.name} - ${titleCodeGenerator(episode)}`;    
-    let summaryContainer = `${pureSummary(episode)}`;    
+    let nameContainer = `${episode.name} - ${titleCodeGenerator(episode)}`;        
     let nameState = getIndexes(elementParameterToSearch.value, `${nameContainer}`, index, "name");
-    let summaryState = getIndexes(elementParameterToSearch.value, `${summaryContainer}`, index, "summary");        
+    if(episode.name != null){
+      let summaryContainer = `${pureSummary(episode)}`;    
+      summaryState = getIndexes(elementParameterToSearch.value, `${summaryContainer}`, index, "summary");        
+    }
+    else{
+      summaryState = false;
+    }    
     if (nameState || summaryState) {   
       objectContainer = [];   
       objectContainer = JSON.parse(JSON.stringify(episode))      

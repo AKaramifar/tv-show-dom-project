@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Marmelad&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Scada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 @keyframes FadeIn{
   from{
       opacity: 0;
@@ -235,10 +236,25 @@
   color: white;
   background-color: #202329;
 }
+.episodeImgDiv_CSS{
+  width: 300px;
+  height: 168px;
+  margin: 0px 11px 0px 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #EE5A24;
+  border-radius: 5px;
+}
 .episodeImg_CSS {
   width: 300px;
+  height: 168px;
   margin: 10px 10px 10px 10px;
   border-radius: 5px;
+}
+.episodeImgP_CSS{
+  align-items: center;
+  font-family: 'Concert One', cursive;
 }
 .episodeSummaryDiv_CSS{
   font-family: 'Marmelad', sans-serif;
