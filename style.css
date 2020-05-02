@@ -239,17 +239,17 @@
 .episodeImgDiv_CSS{
   width: 300px;
   height: 168px;
-  margin: 0px 11px 0px 11px;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #272a30;
   color: #EE5A24;
   border-radius: 5px;
 }
 .episodeImg_CSS {
   width: 300px;
   height: 168px;
-  margin: 10px 10px 10px 10px;
   border-radius: 5px;
 }
 .episodeImgP_CSS{
