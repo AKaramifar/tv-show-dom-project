@@ -55,13 +55,6 @@
       max-width: 1370px;
     }
   }
-
-  @media (max-width: 1540px) {
-    /* xxl */
-    .container_CSS {
-      max-width: 1500px;
-    }
-  }
  
   /* Wrap each bundle of content blocks in a row */
   /* For example, 4 blocks that 'live' together in a row, and then get stacked on mobile */
