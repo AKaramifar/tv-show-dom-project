@@ -13,13 +13,12 @@
 }
 .body_CSS {
   background-color: #1a1d21;
-  margin: 0px;
   width: 100%;
+  margin: 0px;
   height: 100%;
   animation: FadeIn 1s;
   overflow: none;
 }
-
 ::-webkit-scrollbar{
   width: 5px;  
 }
@@ -27,11 +26,11 @@
   background-color: #2e71ff;
   border-radius: 5px;
 }
-.searchDiv_CSS {
+
+.searchDiv_CSS{
   display: flex;
   justify-content: space-between;
-  width: 90%;  
-  margin: 20px 5% 20px 5%;  
+  margin: 15px auto 0px auto;
   border-radius: 5px;  
   background: repeating-linear-gradient(
                 45deg,
@@ -41,17 +40,14 @@
               #5289ff 11px              
                 );              
 }
-.showsDivSelect_CSS{
-  width: 33.333333%;  
+.searchDivChild_CSS {  
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 0;
 }
 .showsListSelect_CSS{
-  width: 300px;
+  min-width: 150px;
   height: 35px;
-  margin: 20px;
+  margin: auto;
   border-radius: 3px;
   font-family: "Bebas Neue", cursive;
   font-size: 15px;
@@ -66,24 +62,10 @@
   color: #1a1d21;
   background-color: #ffffff;
 }
-.episodeDivSelect_CSS{
-  width: 33.333333%;  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-}
-.searchDivInput_CSS{
-  width: 33.333333%;  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-}
 .episodeListSelect_CSS{  
-  width: 300px;
+  min-width: 150px;
   height: 35px;
-  margin: 20px;
+  margin: auto;
   border-radius: 3px;
   background-color: #1a1d2159;
   color: white;
@@ -101,8 +83,8 @@
 }
 
 .episodeInput_CSS {
-  margin: 20px;
-  width: 60%;
+  min-width: 150px;
+  margin: auto;  
   height: 35px;
   text-indent: 5px;
   border-radius: 3px;
@@ -117,8 +99,8 @@
   color: white;
 }
 
-.searchResualt_CSS{  
-  width: 30%;
+.searchResualt_CSS{    
+  min-width: 100px;
   display: flex;
   align-items: center;
   justify-content: center;     
@@ -136,16 +118,15 @@
 }
 
 .mainDiv_CSS {
-  width: 90%;
-  margin: 20px 5% 20px 5%;  
-  padding-top: 20px;
-  padding-bottom: 20px;
-  display: grid;
-  grid-gap: 20px;
+  margin: auto;
+  padding: 20px 0px 20px 0px;
+  display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   border-radius: 5px;  
   transition: transform .1s;
 }
+
 @media only screen and (max-width: 600px) {
   .lds-roller{
     margin-left: 40%;
@@ -189,7 +170,7 @@
     justify-content: center;   
   }
 }
-@media only screen and (min-width: 900px) {
+/* @media only screen and (min-width: 900px) {
   .mainDiv_CSS {
     grid-template-columns: auto auto;
   }
@@ -203,11 +184,12 @@
   .mainDiv_CSS {
     grid-template-columns: auto auto auto auto;
   }
-}
+} */
 
-.episodeDiv_CSS {
-  width: 320px;
+.episodeDiv_CSS {  
+  min-width: 320px;
   height: 460px;
+  margin: 5px 5px 5px 5px;
   background-color: #1f2227;
   color: white;
   border-radius: 0px 5px 5px 5px;
@@ -230,7 +212,7 @@
   border-left: 5px solid #2ed573;  
   border-top-right-radius: 3px;
   letter-spacing: 1px;
-  width: 315px;
+  min-width: 315px;
   height: 35px;
   margin: 0px;
   color: white;
@@ -239,7 +221,7 @@
 .episodeImgDiv_CSS{
   width: 300px;
   height: 168px;
-  margin: 10px;
+  margin: 10px auto 10px auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -248,7 +230,7 @@
   border-radius: 5px;
 }
 .episodeImg_CSS {
-  width: 300px;
+  min-width: 300px;
   height: 168px;
   border-radius: 5px;
 }

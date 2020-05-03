@@ -77,6 +77,7 @@ function setup() {
 function myBody(){
   // Create all elements
   body_El = document.querySelector('body');  
+  container_El = document.createElement('div');
   searchDiv_El = document.createElement('div');
   showsDivSelect_El = document.createElement('div');
   showsListSelect_El = document.createElement('select')
@@ -90,34 +91,37 @@ function myBody(){
 
   // Declare all id and css method for elements
   body_El.id = 'body_JS';
-  body_El.className = 'body_CSS'
+  body_El.classList = 'body_CSS'
+  container_El.id = 'container_JS'
+  container_El.classList = 'container_CSS col-12 sm-col-12 md-col-12 lg-col-12 xl-col-12 xxl-col-12'
   searchDiv_El.id = 'searchDiv_JS';
-  searchDiv_El.className = 'searchDiv_CSS';
+  searchDiv_El.classList = 'searchDiv_CSS col-11 xxl-col-11';
   showsDivSelect_El.id = 'showsDivSelect_JS';
-  showsDivSelect_El.className = 'showsDivSelect_CSS';
+  showsDivSelect_El.classList = 'searchDivChild_CSS col-3 xxl-col-3';
   showsListSelect_El.id = 'showsListSelect_JS';
-  showsListSelect_El.className = 'showsListSelect_CSS';
+  showsListSelect_El.classList = 'showsListSelect_CSS col-11 xxl-col-11';
   episodeDivSelect_El.id = 'episodeDivSelect_JS';
-  episodeDivSelect_El.className = 'episodeDivSelect_CSS';
+  episodeDivSelect_El.classList = 'searchDivChild_CSS col-3 xxl-col-3';
   episodeListSelect_El.id = 'episodeListSelect_JS';
-  episodeListSelect_El.className = 'episodeListSelect_CSS';
+  episodeListSelect_El.classList = 'episodeListSelect_CSS col-11 xxl-col-11';
   searchDivInput_El.id = 'searchDivInput_JS';
-  searchDivInput_El.className = 'searchDivInput_CSS';
+  searchDivInput_El.classList = 'searchDivChild_CSS col-5 xxl-col-5';
   episodeInput_El.id = 'episodeInput_JS';
-  episodeInput_El.className = 'episodeInput_CSS';
+  episodeInput_El.classList = 'episodeInput_CSS col-7 xxl-col-7';
   episodeInput_El.type = 'text';
   episodeInput_El.placeholder = 'Search your keyword . . .';
   searchResualt_El.id = 'searchResualt_JS';
-  searchResualt_El.className = 'searchResualt_CSS';
+  searchResualt_El.classList = 'searchResualt_CSS col-4 xxl-col-4';
   searchResualt_El.textContent = 'Resualt';
   mainDiv_El.id = 'mainDiv_JS';
-  mainDiv_El.className = 'mainDiv_CSS';
+  mainDiv_El.classList = 'mainDiv_CSS col-12 sm-col-12 md-col-12 lg-col-12 xl-col-12 xxl-col-12';
   nothingToShow_El.id = 'nothingToShow_JS';
   nothingToShow_El.className = 'nothingToShow_CSS';
   
   // Add all elements to body
-  body_El.appendChild(searchDiv_El);
-  body_El.appendChild(mainDiv_El);
+  body_El.appendChild(container_El);
+  container_El.appendChild(searchDiv_El);
+  container_El.appendChild(mainDiv_El);
   searchDiv_El.appendChild(showsDivSelect_El)
   searchDiv_El.appendChild(episodeDivSelect_El);
   searchDiv_El.appendChild(searchDivInput_El);
@@ -195,7 +199,7 @@ function makePageForEpisodes(episodeList, searchType) {
     let episodeSummary_El = document.createElement('p');
 
     episodeDiv_El.id = `episode_${index}_JS`;
-    episodeDiv_El.className = 'episodeDiv_CSS';    
+    episodeDiv_El.classList = 'episodeDiv_CSS';    
     episodeTitle_El.id = `episodeTitle_${index}_JS`;
     episodeTitle_El.className = 'episodeTitle_CSS';
     episodeImgDiv_El.id = 'episodeImgDiv_JS';
