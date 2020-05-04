@@ -19,6 +19,11 @@
   animation: FadeIn 1s;
   overflow: none;
 }
+::selection {
+  color: white; 
+  background: #ff6348;
+  border-radius: 5px;
+}
 ::-webkit-scrollbar{
   width: 5px;  
 }
@@ -28,6 +33,7 @@
 }
 
 .searchDiv_CSS{  
+  box-shadow: 0px 0px 0px 0.5px #535353; 
   display: flex;
   margin: 15px auto 0px auto;
   flex-wrap: wrap;
@@ -42,21 +48,18 @@
                 );              
 }
 .showsDivSelect_CSS{
-  /* background-color: brown; */
   display: flex;
   margin: 0;
   height: 72px;
 }
 .episodeDivSelect_CSS{
   display: flex;
-  /* background-color: cadetblue; */
   margin: 0;
   height: 72px;
 }
 .searchDivInput_CSS{
   height: 72px;
   display: flex;
-  /* background-color: coral; */
   margin: 0;
 }
 
@@ -72,6 +75,9 @@
   letter-spacing: 2px;
   text-indent: 5px;
   border: none;
+}
+.showsListSelect_CSS:focus{
+  outline: 1px solid #ffa502;
 }
 .showsListSelect_CSS *{
   letter-spacing: 5px;
@@ -90,6 +96,9 @@
   letter-spacing: 2px;
   text-indent: 5px;
   border: none;
+}
+.episodeListSelect_CSS:focus{
+  outline: 1px solid #ffa502;
 }
 .episodeListSelect_CSS *{  
   letter-spacing: 5px;
@@ -110,6 +119,9 @@
   font-family: "Bebas Neue", cursive;
   letter-spacing: 2px;
   font-size: 14px;
+}
+.episodeInput_CSS:focus{
+  outline: 1px solid #ffa502;
 }
 .episodeInput_CSS::-webkit-input-placeholder{
   color: white;
