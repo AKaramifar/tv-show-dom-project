@@ -33,7 +33,6 @@
   flex-wrap: wrap;
   justify-content: center;
   border-radius: 5px;  
-  /* background-color: #5352ed; */
   background: repeating-linear-gradient(
                 45deg,
                 #2f3640,
@@ -67,7 +66,7 @@
   margin: auto;
   border-radius: 3px;
   font-family: "Bebas Neue", cursive;
-  font-size: 15px;
+  font-size: 14px;
   background-color: #1a1d2159;
   color: white;
   letter-spacing: 2px;
@@ -87,7 +86,7 @@
   background-color: #1a1d2159;
   color: white;
   font-family: "Bebas Neue", cursive;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 2px;
   text-indent: 5px;
   border: none;
@@ -110,28 +109,30 @@
   color: white;
   font-family: "Bebas Neue", cursive;
   letter-spacing: 2px;
-  font-size: 15px;
+  font-size: 14px;
 }
 .episodeInput_CSS::-webkit-input-placeholder{
   color: white;
 }
 
 .searchResualt_CSS{    
+  text-shadow: 0px 0px 5px #cc8500;  
   min-width: 100px;
   display: flex;
   align-items: center;
   justify-content: center;     
   height: 40px;
   font-family: "Bebas Neue", cursive;
-  font-size: 18px;
+  font-size: 15px;
   border-radius: 3px;
   color: white;  
   border: none;
   letter-spacing: 3px;  
 }
 .highlight_CSS{
-  background-color: #2e71ff;
-  border-radius: 3px;  
+  background-color: #ffa502;
+  text-shadow: 0px 0px 5px #ff1702;  
+  border-radius: 2px;  
 }
 
 .mainDiv_CSS {
@@ -166,8 +167,7 @@
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
-  border-left: 5px solid #ffa502;  
-  /* border-left: 5px solid #2ed573;   */
+  border-left: 5px solid #ffa502;    
   border-top-right-radius: 3px;
   letter-spacing: 1px;
   min-width: 315px;
@@ -218,4 +218,9 @@
   line-height: 1.5em;
   overflow: auto;
 }
-
+.nothingToShow_CSS{
+  align-items: center;
+  font-family: 'Concert One', cursive;
+  color: #cc8500;
+  font-size: larger;
+}

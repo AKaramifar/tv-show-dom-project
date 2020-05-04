@@ -23,9 +23,9 @@
   .mainDiv_CSS{
     justify-content: space-evenly;
   }
-
   .episodeDiv_CSS{
     width: 400px;
+    height: 525px;
     margin: 10px 5px 10px 5px;
   }
   .episodeImgDiv_CSS{
