@@ -53,8 +53,6 @@ function getAllEpisodes(){
   }
   getEpisodes();
   
-  // //-------------------------------------------------------
-  
 }
 
 // First function which will load in may page
