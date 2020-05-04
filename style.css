@@ -27,9 +27,11 @@
   border-radius: 5px;
 }
 
-.searchDiv_CSS{
+.searchDiv_CSS{  
   display: flex;
   margin: 15px auto 0px auto;
+  flex-wrap: wrap;
+  justify-content: center;
   border-radius: 5px;  
   background: repeating-linear-gradient(
                 45deg,
@@ -40,15 +42,21 @@
                 );              
 }
 .showsDivSelect_CSS{
+  /* background-color: brown; */
   display: flex;
   margin: 0;
+  height: 72px;
 }
 .episodeDivSelect_CSS{
   display: flex;
+  /* background-color: cadetblue; */
   margin: 0;
+  height: 72px;
 }
 .searchDivInput_CSS{
+  height: 72px;
   display: flex;
+  /* background-color: coral; */
   margin: 0;
 }
 
