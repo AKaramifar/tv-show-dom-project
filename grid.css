@@ -1,7 +1,9 @@
 /* Containers */
 .container_CSS {
   /* default from breakpoint 0, until another breakpoint overrides it */
-  width: 100%;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -16,7 +18,7 @@
 @media (min-width: 699px) and (max-width: 1030px) {
   /* md */
   .container_CSS {
-    max-width: 1030px;    
+    max-width: 1030px;
   }
   .mainDiv_CSS{
     justify-content: space-evenly;
