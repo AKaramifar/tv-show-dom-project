@@ -142,66 +142,6 @@
   border-radius: 5px;  
   transition: transform .1s;
 }
-/* 
-@media only screen and (max-width: 600px) {
-  .lds-roller{
-    margin-left: 40%;
-  }
-  .mainDiv_CSS {
-    grid-template-columns: auto;    
-  }
-  .episodeInput_CSS{
-    width: 60%;  
-    margin: 15px 0px 15px 0px;  
-  }
-  .searchResualt_CSS{  
-    width: 30%;
-    margin: 15px 0px 15px 0px;
-  }
-  .episodeListSelect_CSS{
-    width: 90%;        
-    margin: 15px auto 15px auto;
-  }
-  .showsListSelect_CSS{
-    width: 90%;        
-    margin: 15px auto 15px auto;
-  }
-  .searchDiv_CSS{
-    height: 216px;
-    display: block;       
-  }
-  .showsDivSelect_CSS{
-    height: 33.333333%;
-    width: 100%;
-    justify-content: center;
-  }
-  .searchDivInput_CSS{
-    height: 33.333333%;
-    width: 100%;
-    justify-content: center;
-  }
-  .episodeDivSelect_CSS{  
-    height: 33.333333%;  
-    width: 100%;
-    justify-content: center;   
-  }
-} */
-/* @media only screen and (min-width: 900px) {
-  .mainDiv_CSS {
-    grid-template-columns: auto auto;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .mainDiv_CSS {
-    grid-template-columns: auto auto auto;
-  }
-}
-@media only screen and (min-width: 1450px) {
-  .mainDiv_CSS {
-    grid-template-columns: auto auto auto auto;
-  }
-} */
-
 .episodeDiv_CSS {  
   min-width: 320px;
   height: 460px;
