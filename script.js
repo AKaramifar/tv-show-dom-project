@@ -105,7 +105,7 @@ function myBody(){
   episodeListSelect_El.id = 'episodeListSelect_JS';
   episodeListSelect_El.classList = 'episodeListSelect_CSS col-11 ';
   searchDivInput_El.id = 'searchDivInput_JS';
-  searchDivInput_El.classList = 'searchDivInput_CSS col-5 sm-col-12 md-col-6 lg-col-5';
+  searchDivInput_El.classList = 'searchDivInput_CSS col-5 sm-col-12 md-col-9 lg-col-5';
   episodeInput_El.id = 'episodeInput_JS';
   episodeInput_El.classList = 'episodeInput_CSS col-7 ';
   episodeInput_El.type = 'text';
