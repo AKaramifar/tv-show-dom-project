@@ -23,6 +23,23 @@
   .mainDiv_CSS{
     justify-content: space-evenly;
   }
+
+  .episodeDiv_CSS{
+    width: 400px;
+    margin: 10px 5px 10px 5px;
+  }
+  .episodeImgDiv_CSS{
+    width: 380px;
+    height: 248px;
+  }
+  .episodeImg_CSS{
+    width: 380px;
+    height: 248px;
+  }
+  .episodeSummary_CSS{
+    width: 380px;
+  }
+
 }
 
 @media (min-width: 1031px){
