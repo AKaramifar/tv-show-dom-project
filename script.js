@@ -95,7 +95,7 @@ function myBody(){
   container_El.id = 'container_JS'
   container_El.classList = 'container_CSS'
   searchDiv_El.id = 'searchDiv_JS';
-  searchDiv_El.classList = 'searchDiv_CSS lg-col-11';
+  searchDiv_El.classList = 'searchDiv_CSS lg-col-12';
   showsDivSelect_El.id = 'showsDivSelect_JS';
   showsDivSelect_El.classList = 'showsDivSelect_CSS col-3 sm-col-12 md-col-6 lg-col-3';
   showsListSelect_El.id = 'showsListSelect_JS';
