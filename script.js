@@ -97,15 +97,15 @@ function myBody(){
   searchDiv_El.id = 'searchDiv_JS';
   searchDiv_El.classList = 'searchDiv_CSS xxl-col-12';
   showsDivSelect_El.id = 'showsDivSelect_JS';
-  showsDivSelect_El.classList = 'showsDivSelect_CSS col-3 sm-col-12 md-col-6 lg-col-6 xl-col-3 xxl-col-3';
+  showsDivSelect_El.classList = 'showsDivSelect_CSS col-3 sm-col-12 md-col-6 lg-col-3';
   showsListSelect_El.id = 'showsListSelect_JS';
   showsListSelect_El.classList = 'showsListSelect_CSS col-11 ';
   episodeDivSelect_El.id = 'episodeDivSelect_JS';
-  episodeDivSelect_El.classList = 'episodeDivSelect_CSS col-3 sm-col-12 md-col-6 lg-col-6 xl-col-3 xxl-col-3';
+  episodeDivSelect_El.classList = 'episodeDivSelect_CSS col-3 sm-col-12 md-col-6 lg-col-3';
   episodeListSelect_El.id = 'episodeListSelect_JS';
   episodeListSelect_El.classList = 'episodeListSelect_CSS col-11 ';
   searchDivInput_El.id = 'searchDivInput_JS';
-  searchDivInput_El.classList = 'searchDivInput_CSS col-5 sm-col-12 md-col-6 lg-col-6 xl-col-5 xxl-col-5';
+  searchDivInput_El.classList = 'searchDivInput_CSS col-5 sm-col-12 md-col-6 lg-col-5';
   episodeInput_El.id = 'episodeInput_JS';
   episodeInput_El.classList = 'episodeInput_CSS col-7 ';
   episodeInput_El.type = 'text';
@@ -114,7 +114,7 @@ function myBody(){
   searchResualt_El.classList = 'searchResualt_CSS col-4 ';
   searchResualt_El.textContent = 'Resualt';
   mainDiv_El.id = 'mainDiv_JS';
-  mainDiv_El.classList = 'mainDiv_CSS col-12 sm-col-12 md-col-12 lg-col-12 xl-col-12 xxl-col-12';
+  mainDiv_El.classList = 'mainDiv_CSS col-12';
   nothingToShow_El.id = 'nothingToShow_JS';
   nothingToShow_El.className = 'nothingToShow_CSS';
   
