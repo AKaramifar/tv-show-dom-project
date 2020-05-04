@@ -29,7 +29,6 @@
 
 .searchDiv_CSS{
   display: flex;
-  justify-content: space-between;
   margin: 15px auto 0px auto;
   border-radius: 5px;  
   background: repeating-linear-gradient(
@@ -40,10 +39,19 @@
               #5289ff 11px              
                 );              
 }
-.searchDivChild_CSS {  
+.showsDivSelect_CSS{
   display: flex;
   margin: 0;
 }
+.episodeDivSelect_CSS{
+  display: flex;
+  margin: 0;
+}
+.searchDivInput_CSS{
+  display: flex;
+  margin: 0;
+}
+
 .showsListSelect_CSS{
   min-width: 150px;
   height: 35px;
@@ -126,7 +134,7 @@
   border-radius: 5px;  
   transition: transform .1s;
 }
-
+/* 
 @media only screen and (max-width: 600px) {
   .lds-roller{
     margin-left: 40%;
@@ -169,7 +177,7 @@
     width: 100%;
     justify-content: center;   
   }
-}
+} */
 /* @media only screen and (min-width: 900px) {
   .mainDiv_CSS {
     grid-template-columns: auto auto;
