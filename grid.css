@@ -14,7 +14,9 @@
     max-width: 698px;
   }
   .topButton_CSS{
-    left: 88%;
+    left: 83%;
+    top: 90%;
+    padding: 16px 10px 18px 10px;
   }
 }
 
