@@ -57,7 +57,7 @@ function getAllEpisodes(){
         currentEpisodeLength++;
       })      
       makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));      
-      searchResualt_El.textContent = `Total Episodes : ${currentEpisodeLength}`;
+      searchResualt_El.textContent = `Total : ${currentEpisodeLength}`;
     }  
   }
   getEpisodes();
@@ -152,7 +152,7 @@ function myBody(){
       makePageForEpisodes(episode, index, 'load');
       currentEpisodeLength++;
     })    
-    searchResualt_El.textContent = `Total Episodes : ${currentEpisodeLength}`;
+    searchResualt_El.textContent = `Total : ${currentEpisodeLength}`;
     episodeListSelect_El.innerHTML = '';
     makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));
   });
@@ -202,7 +202,7 @@ function myBody(){
       allEpisodesList.filter(ep => ep.showId == currentShowId).forEach((episode, index)=>{
         makePageForEpisodes(episode, index, 'load');
       })
-      searchResualt_El.textContent = `Total Episodes : ${currentEpisodeLength}`;
+      searchResualt_El.textContent = `Total : ${currentEpisodeLength}`;
     }
   });
 }

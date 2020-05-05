@@ -13,6 +13,9 @@
   .container_CSS {
     max-width: 698px;
   }
+  .topButton_CSS{
+    left: 88%;
+  }
 }
 
 @media (min-width: 699px) and (max-width: 1030px) {
