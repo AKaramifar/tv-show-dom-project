@@ -18,6 +18,7 @@ let objectContainer;
 let FoundIndexArray = [];
 let replacedObject = [];
 let currentShowId = 1;
+let currentEpisodeLength = 0;
 
 function getAllEpisodes(){  
   let showsIdList = allShowsList.map(el=> el.id);
@@ -52,8 +53,10 @@ function getAllEpisodes(){
       mainDiv_El.innerHTML = ''; 
       allEpisodesList.filter(ep => ep.showId == currentShowId).forEach((episode, index)=>{
         makePageForEpisodes(episode, index, 'load');
+        currentEpisodeLength++;
       })      
       makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));      
+      searchResualt_El.textContent = `Total Episodes : ${currentEpisodeLength}`;
     }  
   }
   getEpisodes();
@@ -137,9 +140,12 @@ function myBody(){
   showsListSelect_El.addEventListener('change', ()=>{  
     currentShowId = showsListSelect_El.value;
     mainDiv_El.innerHTML = ''; 
+    currentEpisodeLength = 0;
     allEpisodesList.filter(ep => ep.showId == currentShowId).forEach((episode, index)=>{
       makePageForEpisodes(episode, index, 'load');
+      currentEpisodeLength++;
     })    
+    searchResualt_El.textContent = `Total Episodes : ${currentEpisodeLength}`;
     episodeListSelect_El.innerHTML = '';
     makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));
   });
@@ -164,14 +170,14 @@ function myBody(){
   // Input element on input event serach in my object and find all keyword that I wrote in input 
   episodeInput_El.addEventListener("input", () => {        
     if (episodeInput_El.value != "") {    
-      episodeSearch(allEpisodesList.filter(el => el.showId == currentShowId), episodeInput_El)    
+      episodeSearch(allEpisodesList.filter(el => el.showId == currentShowId), episodeInput_El)          
     } 
     else {   
       mainDiv_El.innerHTML = '';
       allEpisodesList.filter(ep => ep.showId == currentShowId).forEach((episode, index)=>{
         makePageForEpisodes(episode, index, 'load');
       })
-      searchResualt_El.textContent = 'Result';
+      searchResualt_El.textContent = `Total Episodes : ${currentEpisodeLength}`;
     }
   });
 }
