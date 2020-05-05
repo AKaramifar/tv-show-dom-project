@@ -11,6 +11,14 @@
       opacity: 1
   }
 }
+@keyframes FadeOut{
+  from{
+      opacity: 1;
+  }
+  to{
+      opacity: 0;
+  }
+}
 .body_CSS {
   background-color: #1B1C1E;
   width: 100%;
@@ -30,6 +38,24 @@
 ::-webkit-scrollbar-thumb{
   background-color: #1B9CFC;
   border-radius: 5px;
+}
+.topButton_CSS{
+  left: 94%;
+  font-family: 'Concert One', cursive;
+  color: white;
+  font-weight: bolder;
+  padding: 11px 10px 14px 10px;
+  background-color: tomato;
+  border-radius: 50%;
+  position: fixed;
+  animation: FadeIn 1s;
+  transition: 100ms;
+  display: none;
+  z-index: 10000;
+}
+.topButton_CSS:hover{
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .searchDiv_CSS{  
@@ -159,7 +185,7 @@
   height: 460px;
   margin: 5px 5px 5px 5px;
   background-color: #1f2227;
-  color: white;
+  color: #f5f6fa;
   border-radius: 0px 5px 5px 5px;
   border: 1px solid #1f2227;
   animation: FadeIn 1s;
@@ -227,6 +253,7 @@
   align-items: justify;
   line-height: 1.5em;
   overflow: auto;
+  color: #c8d6e5;
 }
 .nothingToShow_CSS{
   align-items: center;

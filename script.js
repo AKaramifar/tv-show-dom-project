@@ -10,6 +10,7 @@ let episodeInput_El;
 let searchResualt_El;
 let mainDiv_El;
 let nothingToShow_El;
+let topButton_El;
 
 // Declare Objects and arrays
 let allShowsList;
@@ -94,6 +95,8 @@ function myBody(){
   searchResualt_El = document.createElement('p');
   mainDiv_El = document.createElement('div');
   nothingToShow_El = document.createElement('h4');
+  topButton_El = document.createElement('p');  
+
 
   // Declare all id and css method for elements
   body_El.id = 'body_JS';
@@ -123,8 +126,12 @@ function myBody(){
   mainDiv_El.classList = 'mainDiv_CSS col-12';
   nothingToShow_El.id = 'nothingToShow_JS';
   nothingToShow_El.className = 'nothingToShow_CSS';
+  topButton_El.id = 'topButton_JS';
+  topButton_El.classList = 'topButton_CSS';
+  topButton_El.innerHTML = `Top`;
   
   // Add all elements to body
+  body_El.appendChild(topButton_El);
   body_El.appendChild(container_El);
   container_El.appendChild(searchDiv_El);
   container_El.appendChild(mainDiv_El);
@@ -149,6 +156,24 @@ function myBody(){
     episodeListSelect_El.innerHTML = '';
     makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));
   });
+
+  window.onscroll = ()=>{
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+      topButton_El.style.display = "block";
+    } else {
+      topButton_El.style.display = "none";
+    }
+  }
+  topButton_El.addEventListener('click',()=>{
+    var scrollStep = -window.scrollY / (1000 / 15),
+        scrollInterval = setInterval(function(){
+        if ( window.scrollY != 0 ) {
+            window.scrollBy( 0, scrollStep );
+        }
+        else clearInterval(scrollInterval); 
+    },15);
+  })
+
   
   // Select element on change event search in my object and find episod that his name is equal with value of select 
   episodeListSelect_El.addEventListener('change', ()=>{  
