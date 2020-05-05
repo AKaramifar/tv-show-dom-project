@@ -47,7 +47,12 @@ function getAllEpisodes(){
     else{
       allEpisodesList = JSON.parse(JSON.stringify(allEpisodesList));      
       currentShowId = showsListSelect_El.value;
-      makePageForEpisodes(allEpisodesList.filter(ep => ep.showId == currentShowId), 'load');
+      let loading_El = document.querySelector('#ldsRoller_JS')
+      loading_El.style.display = 'none'; 
+      mainDiv_El.innerHTML = ''; 
+      allEpisodesList.filter(ep => ep.showId == currentShowId).forEach((episode, index)=>{
+        makePageForEpisodes(episode, index, 'load');
+      })      
       makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));      
     }  
   }
@@ -131,27 +136,41 @@ function myBody(){
   // Select element on change event search in my object and find episod that his name is equal with value of select 
   showsListSelect_El.addEventListener('change', ()=>{  
     currentShowId = showsListSelect_El.value;
-    makePageForEpisodes(allEpisodesList.filter(ep => ep.showId == currentShowId), 'load');
+    mainDiv_El.innerHTML = ''; 
+    allEpisodesList.filter(ep => ep.showId == currentShowId).forEach((episode, index)=>{
+      makePageForEpisodes(episode, index, 'load');
+    })    
     episodeListSelect_El.innerHTML = '';
     makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));
   });
   
   // Select element on change event search in my object and find episod that his name is equal with value of select 
   episodeListSelect_El.addEventListener('change', ()=>{  
-    (episodeListSelect_El.value == "allEepisodes") ? makePageForEpisodes(allEpisodesList.filter(ep => ep.showId == currentShowId), 'load') : makePageForEpisodes(allEpisodesList.filter(Episodes=> episodeListSelect_El.value == `${Episodes.name + ' - ' + titleCodeGenerator(Episodes)}`),'load');
+    if(episodeListSelect_El.value == "allEepisodes"){
+      mainDiv_El.innerHTML = ''; 
+      allEpisodesList.filter(ep => ep.showId == currentShowId).forEach((episode, index)=>{
+        makePageForEpisodes(episode, index, 'load');
+      })   
+    }
+    else{
+      mainDiv_El.innerHTML = ''; 
+      allEpisodesList.filter(Episodes=> episodeListSelect_El.value == `${Episodes.name+ ' - ' + titleCodeGenerator(Episodes)}`).forEach((episode, index)=>{
+        makePageForEpisodes(episode, index, 'load');
+      })   
+      
+    }
   });
 
   // Input element on input event serach in my object and find all keyword that I wrote in input 
   episodeInput_El.addEventListener("input", () => {        
     if (episodeInput_El.value != "") {    
-      FoundIndexArray = [];     
-      replacedObject = [];       
-      objectContainer = []; 
-      highlight(allEpisodesList.filter(el => el.showId == currentShowId), episodeInput_El);
-      makePageForEpisodes(replacedObject, 'search');      
+      episodeSearch(allEpisodesList.filter(el => el.showId == currentShowId), episodeInput_El)    
     } 
-    else {    
-      makePageForEpisodes(allEpisodesList.filter(ep => ep.showId == currentShowId), 'load')
+    else {   
+      mainDiv_El.innerHTML = '';
+      allEpisodesList.filter(ep => ep.showId == currentShowId).forEach((episode, index)=>{
+        makePageForEpisodes(episode, index, 'load');
+      })
       searchResualt_El.textContent = 'Result';
     }
   });
@@ -165,86 +184,71 @@ function titleCodeGenerator(episode) {
 }
 // Summary in object mentioned <p> and </p> tags and these tags have to be removed
 function pureSummary(episode) {
-
   // Remove all <p> tags in sammary
   let summaryStr = episode.summary.replace(/<p>/g, "");  
   // Remove all </p> tags in sammary and return it
   return summaryStr.replace(/<\/p>/g, "");
 }
 // Function for make main body of project
-function makePageForEpisodes(episodeList, searchType) {
-
-  let loading_El = document.querySelector('#ldsRoller_JS')
-  loading_El.style.display = 'none';
-  mainDiv_El.innerHTML = '';
-  nothingToShow_El.id = 'nothingToShow_JS';
-
-  if(episodeList.length == 0){
-    nothingToShow_El.textContent = 'Sorry Nothing to show ! ! !';
-    mainDiv_El.appendChild(nothingToShow_El);
-  }
+function makePageForEpisodes(episodeList, index, activitytype) {
   
   // forEach loop to reed one by one objects in main array and show on document
-  episodeList.forEach((episode, index) => {    
-    // Create all element for show episodes in page
-    let episodeDiv_El = document.createElement('div');
-    let episodeTitle_El = document.createElement('p');
-    let episodeImgDiv_El = document.createElement('div')
-    let episodeImg_El = document.createElement('img');
-    let episodeImgP_El = document.createElement('p');
-    let episodeSummaryLabel_El = document.createElement('strong');
-    let episodeSummaryDiv_El = document.createElement('div');
-    let episodeSummary_El = document.createElement('p');
+  // episodeList.forEach((episode, index) => {    
+  // Create all element for show episodes in page
+  let episodeDiv_El = document.createElement('div');
+  let episodeTitle_El = document.createElement('p');
+  let episodeImgDiv_El = document.createElement('div')
+  let episodeImg_El = document.createElement('img');
+  let episodeImgP_El = document.createElement('p');
+  let episodeSummaryLabel_El = document.createElement('strong');
+  let episodeSummaryDiv_El = document.createElement('div');
+  let episodeSummary_El = document.createElement('p');
 
-    episodeDiv_El.id = `episode_${index}_JS`;
-    episodeDiv_El.classList = 'episodeDiv_CSS';    
-    episodeTitle_El.id = `episodeTitle_${index}_JS`;
-    episodeTitle_El.className = 'episodeTitle_CSS';
-    episodeImgDiv_El.id = 'episodeImgDiv_JS';
-    episodeImgDiv_El.className = 'episodeImgDiv_CSS';
-    episodeImgP_El.id = 'episodeImgP_JS';
-    episodeImgP_El.className = 'episodeImgP_CSS';
-    episodeImg_El.id = `episodeImg_${index}_JS`;
-    episodeImg_El.className = 'episodeImg_CSS';
-    episodeSummaryDiv_El.id = `episodeSummaryDiv_${index}_Js`;
-    episodeSummaryDiv_El.className = `episodeSummaryDiv_CSS`;
-    episodeSummaryLabel_El.id = `episodeSummaryLabel_${index}_Js`;
-    episodeSummaryLabel_El.className = 'episodeSummaryLabel_CSS';
-    episodeSummary_El.id = `episodeSummary_${index}_Js`;
-    episodeSummary_El.className = 'episodeSummary_CSS';
-    
+  episodeDiv_El.id = `episode_${index}_JS`;
+  episodeDiv_El.classList = 'episodeDiv_CSS';    
+  episodeTitle_El.id = `episodeTitle_${index}_JS`;
+  episodeTitle_El.className = 'episodeTitle_CSS';
+  episodeImgDiv_El.id = 'episodeImgDiv_JS';
+  episodeImgDiv_El.className = 'episodeImgDiv_CSS';
+  episodeImgP_El.id = 'episodeImgP_JS';
+  episodeImgP_El.className = 'episodeImgP_CSS';
+  episodeImg_El.id = `episodeImg_${index}_JS`;
+  episodeImg_El.className = 'episodeImg_CSS';
+  episodeSummaryDiv_El.id = `episodeSummaryDiv_${index}_Js`;
+  episodeSummaryDiv_El.className = `episodeSummaryDiv_CSS`;
+  episodeSummaryLabel_El.id = `episodeSummaryLabel_${index}_Js`;
+  episodeSummaryLabel_El.className = 'episodeSummaryLabel_CSS';
+  episodeSummary_El.id = `episodeSummary_${index}_Js`;
+  episodeSummary_El.className = 'episodeSummary_CSS';    
 
-    episodeTitle_El.innerHTML = `${(searchType == 'search') ? episode.name : episode.name + ' - ' + titleCodeGenerator(episode)}`;
-    episodeSummaryLabel_El.textContent = `Summary`;
-    if(episode.summary != null){
-      if (episode.summary != ''){
-        episodeSummary_El.innerHTML = `${pureSummary(episode)}`;
-      }
-      else{
-        episodeSummary_El.textContent = 'Nothing to show !!!';
-      }      
+  episodeTitle_El.innerHTML = (activitytype == 'load') ? `${episodeList.name} - ${titleCodeGenerator(episodeList)}` : `${episodeList.name}`;
+  episodeSummaryLabel_El.textContent = `Summary`;
+  if(episodeList.summary != null){
+    if (episodeList.summary != ''){
+      episodeSummary_El.innerHTML = episodeList.summary;
     }
     else{
       episodeSummary_El.textContent = 'Nothing to show !!!';
-    }
-    
-    
-    mainDiv_El.appendChild(episodeDiv_El);
-    episodeDiv_El.appendChild(episodeTitle_El)
-    episodeDiv_El.appendChild(episodeImgDiv_El)
-    if(episode.image != null){
-      episodeImg_El.src = `${episode.image.medium}` 
-      episodeImgDiv_El.appendChild(episodeImg_El)
-    }
-    else{
-      episodeImgDiv_El.appendChild(episodeImgP_El)
-      episodeImgP_El.innerHTML = '   Image <br> Not Found!!!';    
-    }    
-    episodeDiv_El.appendChild(episodeSummaryLabel_El)
-    episodeDiv_El.appendChild(episodeSummaryDiv_El)
-    episodeSummaryDiv_El.appendChild(episodeSummary_El)  
-      
-  });    
+    }      
+  }
+  else{
+    episodeSummary_El.textContent = 'Nothing to show !!!';
+  }    
+  
+  mainDiv_El.appendChild(episodeDiv_El);
+  episodeDiv_El.appendChild(episodeTitle_El)
+  episodeDiv_El.appendChild(episodeImgDiv_El)
+  if(episodeList.image != null){
+    episodeImg_El.src = `${episodeList.image.medium}` 
+    episodeImgDiv_El.appendChild(episodeImg_El)
+  }
+  else{
+    episodeImgDiv_El.appendChild(episodeImgP_El)
+    episodeImgP_El.innerHTML = '   Image <br> Not Found!!!';    
+  }    
+  episodeDiv_El.appendChild(episodeSummaryLabel_El)
+  episodeDiv_El.appendChild(episodeSummaryDiv_El)
+  episodeSummaryDiv_El.appendChild(episodeSummary_El)        
 }
 function makeComboBoxOfShowsName(allShowsList){  
   allShowsList.forEach((episode, index) => {
@@ -274,70 +278,36 @@ function makeComboBoxOfEpisodesName(episodeList){
   });    
 }
 
-function getIndexes(stringToSearch, mainString, objectIndex, key) {
-  let findState = false;
-  let startIndex = 0;
-  let newIndex;
-  let stringToSearchLen = stringToSearch.length;
-  mainString = mainString.toLowerCase();
-  stringToSearch = stringToSearch.toLowerCase();
-  while ((newIndex = mainString.indexOf(stringToSearch, startIndex)) > -1) {
-    FoundIndexArray.push({objectIndexes: objectIndex, objectKey: key, foundStrIndex: newIndex});
-    startIndex = newIndex + stringToSearchLen;
-    findState = true;
-  }
-  return findState;
-}
-
-function nameAndSummaryHighlight(objectContainer, nameOrSummary, nameOrSummaryKey, index, elementParameterToSearch){
-  let nameOrSummaryDividedArray = [];
-  let  indexList = [];
-  indexList = FoundIndexArray.filter((el) => el.objectIndexes == index && el.objectKey == nameOrSummaryKey).map((el) => el.foundStrIndex);
-  indexList.forEach((strIndex, i) => {
-    nameOrSummaryDividedArray.push(nameOrSummary.slice(i == 0 ? 0 : indexList[i - 1] + 1, strIndex + elementParameterToSearch.value.length));
-  });
-  nameOrSummaryDividedArray.push(nameOrSummary.slice(indexList[indexList.length - 1] + elementParameterToSearch.value.length));
-  nameOrSummaryDividedArray.forEach((element, i) => {
-    (i < nameOrSummaryDividedArray.length - 1) ? (nameOrSummaryDividedArray[i] = `${nameOrSummaryDividedArray[i].slice(0, nameOrSummaryDividedArray[i].length - elementParameterToSearch.value.length)}<strong class="highlight_CSS">${nameOrSummaryDividedArray[i].slice(nameOrSummaryDividedArray[i].length - elementParameterToSearch.value.length)}</strong>`) : {};
-  });
-  (nameOrSummaryKey == 'name') ? objectContainer.name = nameOrSummaryDividedArray.join("") : objectContainer.summary = nameOrSummaryDividedArray.join("");   
-
-}
-
-function highlight(episodeList, elementParameterToSearch) {
-  let totalFoundObject = 0;
-  let nameState = false;     
-  let summaryState = false;
-  let nameContainer = '';
-  let summaryContainer = '' ;
-  episodeList.forEach((episode, index) => {
-    nameContainer = `${episode.name} - ${titleCodeGenerator(episode)}`;        
-    nameState = getIndexes(elementParameterToSearch.value, `${nameContainer}`, index, "name");
-    if(episode.summary != null){
-      if(episode.summary != ''){
-        summaryContainer = `${pureSummary(episode)}`;    
-        summaryState = getIndexes(elementParameterToSearch.value, `${summaryContainer}`, index, "summary");        
-      }
+function episodeSearch(allEpisodes, elementParameterToSearch){  
+  mainDiv_El.innerHTML = ''; 
+  let searchResualt = 0;
+  allEpisodes.forEach((episode, index)=> {  
+    let episodeResualt = 0;
+    let episodeContainer = JSON.parse(JSON.stringify(episode))      
+    episodeContainer.name = `${episode.name} - ${titleCodeGenerator(episode)}`;
+    episodeContainer.summary = `${pureSummary(episode)}`;
+  
+    if (episodeContainer.name.toLowerCase().indexOf(elementParameterToSearch.value) > -1){
+      episodeContainer.name = episodeContainer.name.replace(new RegExp(elementParameterToSearch.value, "gi"), (match) => `<strong class="highlight_CSS">${match}</strong>`);
+      episodeResualt++;
     }
-    else{
-      summaryState = false;
+    if (episodeContainer.summary.toLowerCase().indexOf(elementParameterToSearch.value) > -1){
+      episodeContainer.summary = episodeContainer.summary.replace(new RegExp(elementParameterToSearch.value, "gi"), (match) => `<strong class="highlight_CSS">${match}</strong>`);      
+      episodeResualt++;
     }    
-    if (nameState || summaryState) {   
-      objectContainer = [];   
-      objectContainer = JSON.parse(JSON.stringify(episode))      
-      totalFoundObject += 1;
-      // ------------------------------------------------------ Name Highlight ---------------------------------------------------------
-      if (nameState) {        
-        nameAndSummaryHighlight(objectContainer, nameContainer, 'name', index, elementParameterToSearch);            
-      }
-      // ------------------------------------------------------ Summary Highlight ------------------------------------------------------
-      if (summaryState) {        
-        nameAndSummaryHighlight(objectContainer, summaryContainer, 'summary', index, elementParameterToSearch);        
-      }
-      replacedObject.push(objectContainer);      
+    if(episodeResualt > 0) {
+      searchResualt++;
+      makePageForEpisodes(episodeContainer, index, 'search');
     }
-  });  
-  searchResualt_El.textContent = `${totalFoundObject} | ${episodeList.length}`;
+  })
+  if (searchResualt == 0) {    
+    nothingToShow_El.id = 'nothingToShow_JS';
+    nothingToShow_El.textContent = 'Sorry Nothing to show ! ! !';
+    mainDiv_El.appendChild(nothingToShow_El);     
+    searchResualt_El.textContent = `0 | ${allEpisodes.length}`;
+  }
+  else{
+    searchResualt_El.textContent = `${searchResualt} | ${allEpisodes.length}`;
+  }
 }
-
 window.onload = setup;
