@@ -30,7 +30,9 @@
     font-size: 25px;  
     margin-top: 0px;
     margin-left: 48px;
-
+  }
+  .lds-roller{
+    top: 500px;
   }
 }
 
