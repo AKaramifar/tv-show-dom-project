@@ -1,11 +1,7 @@
 /* Import Google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Marmelad&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Scada&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
 /* Fade in animation for page load */
-@import url('https://fonts.googleapis.com/css?family=Akronim|Black+Ops+One|Bungee|Bungee+Inline|Bungee+Shade|Chicle|Creepster|Eater|Faster+One|Fredericka+the+Great|Frijole|Limelight|Merienda+One|Monoton|Pattaya|Poller+One|Racing+Sans+One|Rye|Shrikhand|Special+Elite|Timmana|Ultra&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Faster+One|Bebas+Neue|Hind:wght|Marmelad|Scada|Concert+One&display=swap');
 @keyframes FadeIn{
   from{
       opacity: 0;
@@ -58,47 +54,25 @@
 }
 
 .header_CSS{
-  height: 200px;
+  height: 160px;
   border-radius: 5px;
   background-color: #2f3640;
-  margin: 10px auto 0px auto;
+  margin: 0px auto 0px auto;
   color:white;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* font-family: 'Concert One', cursive; */
-  /* font-family: 'Special Elite', cursive; */
-  /* font-family: 'Ultra', serif; */
-  /* font-family: 'Monoton', cursive; */
-  /* font-family: 'Merienda One', cursive; */
-  /* font-family: 'Black Ops One', cursive; */
-  /* font-family: 'Fredericka the Great', cursive; */
-  /* font-family: 'Shrikhand', cursive; */
-  /* font-family: 'Racing Sans One', cursive; */
-  /* font-family: 'Pattaya', sans-serif; */
-  /* font-family: 'Bungee Inline', cursive; */
-  /* font-family: 'Bungee', cursive; */
-  /* font-family: 'Frijole', cursive; */
-  /* font-family: 'Rye', cursive; */
   font-family: 'Faster One', cursive;
-  /* font-family: 'Bungee Shade', cursive; */
-  /* font-family: 'Limelight', cursive; */
-  /* font-family: 'Timmana', sans-serif; */
-  /* font-family: 'Eater', cursive; */
-  /* font-family: 'Creepster', cursive; */
-  /* font-family: 'Chicle', cursive; */
-  /* font-family: 'Akronim', cursive; */
-  /* font-family: 'Poller One', cursive; */
 }
 .titlePartOne_CSS{
-  font-size: 180px;  
+  font-size: 160px;  
   letter-spacing: 20px;
   margin: 0px 20px auto 100px;
   color: #2ed573;
 }
 .titlePartTwo_CSS{
   font-size: 60px;  
-  margin-top: 150px;
+  margin-top: 135px;
   margin-left: 30px;
   letter-spacing: 20px;
   color: #dfe4ea;
