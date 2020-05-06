@@ -1,7 +1,6 @@
 /* Import Google fonts */
-
-/* Fade in animation for page load */
 @import url('https://fonts.googleapis.com/css?family=Faster+One|Bebas+Neue|Hind:wght|Marmelad|Scada|Concert+One&display=swap');
+/* Fade in animation for page load */
 @keyframes FadeIn{
   from{
       opacity: 0;
@@ -96,7 +95,7 @@
               #2f3640 10px,
               #2f3640 0px,
               #2f3640 11px              
-                );              
+                );                
 }
 /* Show's  list in div style */
 .showsDivSelect_CSS{
