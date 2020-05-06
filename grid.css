@@ -55,11 +55,19 @@
     width: 380px;
     height: 248px;
   }
+  .header_CSS{
+    height: 140px;
+  }
   .episodeSummary_CSS{
     width: 380px;
   }
+  .titlePartOne_CSS{
+    font-size: 120px;  
+    margin-left: 70px;
+  }
   .titlePartTwo_CSS{
-    margin-top: 80px;
+    font-size: 40px;  
+    margin-top: 60px;
   }
 }
 
