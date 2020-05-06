@@ -350,17 +350,21 @@ function episodeSearch(allEpisodes, elementParameterToSearch){
   allEpisodes.forEach((episode, index)=> {  
     let episodeResualt = 0;
     let episodeContainer = JSON.parse(JSON.stringify(episode))      
-    episodeContainer.name = `${episode.name} - ${titleCodeGenerator(episode)}`;
-    episodeContainer.summary = `${pureSummary(episode)}`;
+    episodeContainer.name = `${episode.name} - ${titleCodeGenerator(episode)}`;    
   
     if (episodeContainer.name.toLowerCase().indexOf(elementParameterToSearch.value) > -1){
       episodeContainer.name = episodeContainer.name.replace(new RegExp(elementParameterToSearch.value, "gi"), (match) => `<strong class="highlight_CSS">${match}</strong>`);
       episodeResualt++;
     }
-    if (episodeContainer.summary.toLowerCase().indexOf(elementParameterToSearch.value) > -1){
-      episodeContainer.summary = episodeContainer.summary.replace(new RegExp(elementParameterToSearch.value, "gi"), (match) => `<strong class="highlight_CSS">${match}</strong>`);      
-      episodeResualt++;
-    }    
+    if(episode.summary != null){
+      if (episode.summary != ''){
+        episodeContainer.summary = `${pureSummary(episode)}`;
+        if (episodeContainer.summary.toLowerCase().indexOf(elementParameterToSearch.value) > -1){
+          episodeContainer.summary = episodeContainer.summary.replace(new RegExp(elementParameterToSearch.value, "gi"), (match) => `<strong class="highlight_CSS">${match}</strong>`);      
+          episodeResualt++;
+        }    
+      }       
+    }        
     if(episodeResualt > 0) {
       searchResualt++;
       makePageForEpisodes(episodeContainer, index, 'search');
