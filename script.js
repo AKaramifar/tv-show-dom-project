@@ -162,6 +162,7 @@ function myBody(){
 
   // Select element on change event search in my object and find episod that his name is equal with value of select 
   showsListSelect_El.addEventListener('change', ()=>{  
+    episodeInput_El.value = '';
     currentShowId = showsListSelect_El.value;
     mainDiv_El.innerHTML = ''; 
     currentEpisodeLength = 0;
@@ -202,6 +203,8 @@ function myBody(){
     searchResualt_El.textContent = `Total : ${currentEpisodeLength}`;
     episodeListSelect_El.innerHTML = '';
     makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));
+    showsListSelect_El.selectedIndex = 0;
+    episodeInput_El.value = '';
   })
   // Select element on change event search in my object and find episod that his name is equal with value of select 
   episodeListSelect_El.addEventListener('change', ()=>{  
@@ -221,7 +224,8 @@ function myBody(){
   });
 
   // Input element on input event serach in my object and find all keyword that I wrote in input 
-  episodeInput_El.addEventListener("input", () => {        
+  episodeInput_El.addEventListener("input", () => {    
+    episodeListSelect_El.selectedIndex = 0;    
     if (episodeInput_El.value != "") {    
       episodeSearch(allEpisodesList.filter(el => el.showId == currentShowId), episodeInput_El)          
     } 
