@@ -208,15 +208,17 @@ function myBody(){
   })
   // Select element on change event search in my object and find episod that his name is equal with value of select 
   episodeListSelect_El.addEventListener('change', ()=>{  
-    episodeInput_El.value = '';
+    episodeInput_El.value = '';    
     if(episodeListSelect_El.value == "allEepisodes"){
       mainDiv_El.innerHTML = ''; 
+      searchResualt_El.textContent = `Total :  ${allEpisodesList.filter(ep => ep.showId == currentShowId).length}`;
       allEpisodesList.filter(ep => ep.showId == currentShowId).forEach((episode, index)=>{
         makePageForEpisodes(episode, index, 'load');
       })   
     }
     else{
       mainDiv_El.innerHTML = ''; 
+      searchResualt_El.textContent = `${1} | ${allEpisodesList.filter(ep => ep.showId == currentShowId).length}`;
       allEpisodesList.filter(Episodes=> episodeListSelect_El.value == `${Episodes.name+ ' - ' + titleCodeGenerator(Episodes)}`).forEach((episode, index)=>{
         makePageForEpisodes(episode, index, 'load');
       })   
