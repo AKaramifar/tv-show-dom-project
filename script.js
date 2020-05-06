@@ -49,7 +49,7 @@ function getAllEpisodes(){
         getEpisodes(); 
       })
     }
-    else{
+    else{      
       allEpisodesList = JSON.parse(JSON.stringify(allEpisodesList));      
       currentShowId = showsListSelect_El.value;
       let loading_El = document.querySelector('#ldsRoller_JS')
@@ -78,7 +78,7 @@ function setup() {
     allShowsList = JSON.parse(JSON.stringify(data))
     myBody();    
     makeComboBoxOfShowsName(allShowsList.sort((a, b) => a.name.localeCompare(b.name)));    
-    getAllEpisodes();
+    getAllEpisodes();    
   })
   .catch(error => console.log(error))
 }
@@ -191,7 +191,18 @@ function myBody(){
     },15);
   })
 
-  
+  titlePartOne_El.addEventListener('click',()=>{
+    currentShowId = showsListSelect_El[0].value;
+    mainDiv_El.innerHTML = ''; 
+    currentEpisodeLength = 0;
+    allEpisodesList.filter(ep => ep.showId == currentShowId).forEach((episode, index)=>{
+      makePageForEpisodes(episode, index, 'load');
+      currentEpisodeLength++;
+    })   
+    searchResualt_El.textContent = `Total : ${currentEpisodeLength}`;
+    episodeListSelect_El.innerHTML = '';
+    makeComboBoxOfEpisodesName(allEpisodesList.filter(el => el.showId == currentShowId));
+  })
   // Select element on change event search in my object and find episod that his name is equal with value of select 
   episodeListSelect_El.addEventListener('change', ()=>{  
     if(episodeListSelect_El.value == "allEepisodes"){

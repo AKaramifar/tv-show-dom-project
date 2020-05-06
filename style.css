@@ -69,6 +69,11 @@
   letter-spacing: 20px;
   margin: -15px 20px auto 100px;
   color: #2ed573;
+  transition: 400ms;
+}
+.titlePartOne_CSS:hover{
+  color: #e84118;
+  cursor: pointer;
 }
 .titlePartTwo_CSS{
   font-size: 60px;  
