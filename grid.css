@@ -34,6 +34,9 @@
   .lds-roller{
     top: 500px;
   }
+  .showsDivSelect_CSS, .episodeDivSelect_CSS{
+    border-bottom: 1px solid #1B1C1E;    
+  }
 }
 
 @media (min-width: 699px) and (max-width: 1030px) {
@@ -71,6 +74,9 @@
   .titlePartTwo_CSS{
     font-size: 40px;  
     margin-top: 40px;
+  }
+  .showsDivSelect_CSS, .episodeDivSelect_CSS{
+    border-bottom: 1px solid #1B1C1E;    
   }
 }
 
