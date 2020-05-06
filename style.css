@@ -1,8 +1,11 @@
+/* Import Google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Marmelad&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Scada&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+/* Fade in animation for page load */
+@import url('https://fonts.googleapis.com/css?family=Akronim|Black+Ops+One|Bungee|Bungee+Inline|Bungee+Shade|Chicle|Creepster|Eater|Faster+One|Fredericka+the+Great|Frijole|Limelight|Merienda+One|Monoton|Pattaya|Poller+One|Racing+Sans+One|Rye|Shrikhand|Special+Elite|Timmana|Ultra&display=swap');
 @keyframes FadeIn{
   from{
       opacity: 0;
@@ -11,14 +14,7 @@
       opacity: 1
   }
 }
-@keyframes FadeOut{
-  from{
-      opacity: 1;
-  }
-  to{
-      opacity: 0;
-  }
-}
+/* Body style */
 .body_CSS {
   background-color: #1B1C1E;
   width: 100%;
@@ -39,6 +35,7 @@
   background-color: #1B9CFC;
   border-radius: 5px;
 }
+/* Top button style */
 .topButton_CSS{
   left: 94%;
   font-family: 'Concert One', cursive;
@@ -51,6 +48,8 @@
   animation: FadeIn 1s;
   transition: 100ms;
   display: none;
+  border: 0.5px solid orange;
+  text-shadow: 0px 0px 5px #cc8500; 
   z-index: 10000;
 }
 .topButton_CSS:hover{
@@ -58,9 +57,57 @@
   cursor: pointer;
 }
 
-.searchDiv_CSS{  
+.header_CSS{
+  height: 200px;
+  border-radius: 5px;
+  background-color: #2f3640;
+  margin: 10px auto 0px auto;
+  color:white;
   display: flex;
-  margin: 15px auto 0px auto;
+  justify-content: flex-start;
+  align-items: center;
+  /* font-family: 'Concert One', cursive; */
+  /* font-family: 'Special Elite', cursive; */
+  /* font-family: 'Ultra', serif; */
+  /* font-family: 'Monoton', cursive; */
+  /* font-family: 'Merienda One', cursive; */
+  /* font-family: 'Black Ops One', cursive; */
+  /* font-family: 'Fredericka the Great', cursive; */
+  /* font-family: 'Shrikhand', cursive; */
+  /* font-family: 'Racing Sans One', cursive; */
+  /* font-family: 'Pattaya', sans-serif; */
+  /* font-family: 'Bungee Inline', cursive; */
+  /* font-family: 'Bungee', cursive; */
+  /* font-family: 'Frijole', cursive; */
+  /* font-family: 'Rye', cursive; */
+  font-family: 'Faster One', cursive;
+  /* font-family: 'Bungee Shade', cursive; */
+  /* font-family: 'Limelight', cursive; */
+  /* font-family: 'Timmana', sans-serif; */
+  /* font-family: 'Eater', cursive; */
+  /* font-family: 'Creepster', cursive; */
+  /* font-family: 'Chicle', cursive; */
+  /* font-family: 'Akronim', cursive; */
+  /* font-family: 'Poller One', cursive; */
+}
+.titlePartOne_CSS{
+  font-size: 180px;  
+  letter-spacing: 20px;
+  margin: 0px 20px auto 100px;
+  color: #2ed573;
+}
+.titlePartTwo_CSS{
+  font-size: 60px;  
+  margin-top: 150px;
+  margin-left: 30px;
+  letter-spacing: 20px;
+  color: #dfe4ea;
+}
+
+/* Search div style */
+.searchDiv_CSS{    
+  display: flex;
+  margin: 10px auto 0px auto;
   flex-wrap: wrap;
   justify-content: center;
   border-radius: 5px;  
@@ -72,22 +119,25 @@
               #2f3640 11px              
                 );              
 }
+/* Show's  list in div style */
 .showsDivSelect_CSS{
   display: flex;
   margin: 0;
   height: 72px;
 }
+/* Episode's list in div style */
 .episodeDivSelect_CSS{
   display: flex;
   margin: 0;
   height: 72px;
 }
+/* Search input div style for episode's */
 .searchDivInput_CSS{
   height: 72px;
   display: flex;
   margin: 0;
 }
-
+/* Show's list select style */
 .showsListSelect_CSS{
   min-width: 150px;
   height: 35px;
@@ -109,6 +159,7 @@
   background-color: #ffffff;
   border-bottom-left-radius: 5px;
 }
+/* Episode's list select style */
 .episodeListSelect_CSS{  
   min-width: 150px;
   height: 35px;
@@ -136,7 +187,7 @@
   min-width: 150px;
   margin: auto;  
   height: 35px;
-  text-indent: 5px;
+  text-indent: 15px;
   border-radius: 3px;
   border: none;  
   background-color: #1a1d2159;
@@ -196,14 +247,15 @@
   transform: scale(1.01); 
   transition: 200ms;
   box-shadow: 0px 0px 0px 1px #f39c12;
-}
+}  
 
 .episodeTitle_CSS {
   font-family: "Bebas Neue", cursive;
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
-  border-left: 5px solid #2ecc71;    
+  border-left: 5px solid #2ecc71;   
+  text-shadow: 0px 0px 2px #cc8500;  
   border-top-right-radius: 3px;
   letter-spacing: 1px;
   min-width: 315px;

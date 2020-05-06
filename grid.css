@@ -18,6 +18,20 @@
     top: 90%;
     padding: 10px 10px 15px 10px;
   }
+  .header_CSS{
+    display: block;
+    height: 150px;
+  }
+  .titlePartOne_CSS{
+    font-size: 100px;  
+    margin: 0px 20px auto 50px;
+  }
+  .titlePartTwo_CSS{
+    font-size: 25px;  
+    margin-top: 0px;
+    margin-left: 50px;
+
+  }
 }
 
 @media (min-width: 699px) and (max-width: 1030px) {
@@ -44,7 +58,9 @@
   .episodeSummary_CSS{
     width: 380px;
   }
-
+  .titlePartTwo_CSS{
+    margin-top: 80px;
+  }
 }
 
 @media (min-width: 1031px){

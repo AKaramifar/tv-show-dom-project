@@ -1,5 +1,8 @@
 // Declare Html Elements
 let body_El;
+let header_El;
+let titlePartOne_El;
+let titlePartTwo_El;
 let searchDiv_El;
 let showsDivSelect_El;
 let showsListSelect_El;
@@ -84,6 +87,9 @@ function setup() {
 function myBody(){
   // Create all elements
   body_El = document.querySelector('body');  
+  header_El = document.createElement('div');
+  titlePartOne_El = document.createElement('p');
+  titlePartTwo_El = document.createElement('p');
   container_El = document.createElement('div');
   searchDiv_El = document.createElement('div');
   showsDivSelect_El = document.createElement('div');
@@ -100,7 +106,15 @@ function myBody(){
 
   // Declare all id and css method for elements
   body_El.id = 'body_JS';
-  body_El.classList = 'body_CSS'
+  body_El.classList = 'body_CSS';
+  header_El.id = 'header_JS';
+  header_El.classList = 'header_CSS col-12 sm-col-12 md-col-12 lg-col-12';
+  titlePartOne_El.id = 'titlePartOne_JS';
+  titlePartOne_El.classList = 'titlePartOne_CSS';
+  titlePartOne_El.textContent = 'TV'
+  titlePartTwo_El.id = 'titlePartTwo_JS';
+  titlePartTwo_El.classList = 'titlePartTwo_CSS';
+  titlePartTwo_El.textContent = 'SHOW PROJECT';
   container_El.id = 'container_JS'
   container_El.classList = 'container_CSS'
   searchDiv_El.id = 'searchDiv_JS';
@@ -133,6 +147,9 @@ function myBody(){
   // Add all elements to body
   body_El.appendChild(topButton_El);
   body_El.appendChild(container_El);
+  container_El.appendChild(header_El);
+  header_El.appendChild(titlePartOne_El);
+  header_El.appendChild(titlePartTwo_El);
   container_El.appendChild(searchDiv_El);
   container_El.appendChild(mainDiv_El);
   searchDiv_El.appendChild(showsDivSelect_El)
