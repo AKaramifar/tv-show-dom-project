@@ -63,11 +63,12 @@
   }
   .titlePartOne_CSS{
     font-size: 120px;  
+    margin-top: 0px;
     margin-left: 70px;
   }
   .titlePartTwo_CSS{
     font-size: 40px;  
-    margin-top: 60px;
+    margin-top: 40px;
   }
 }
 

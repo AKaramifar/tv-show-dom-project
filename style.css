@@ -57,7 +57,7 @@
   height: 160px;
   border-radius: 5px;
   background-color: #2f3640;
-  margin: 0px auto 0px auto;
+  margin: 10px auto 0px auto;
   color:white;
   display: flex;
   justify-content: flex-start;
@@ -67,12 +67,12 @@
 .titlePartOne_CSS{
   font-size: 160px;  
   letter-spacing: 20px;
-  margin: 0px 20px auto 100px;
+  margin: -15px 20px auto 100px;
   color: #2ed573;
 }
 .titlePartTwo_CSS{
   font-size: 60px;  
-  margin-top: 135px;
+  margin-top: 100px;
   margin-left: 30px;
   letter-spacing: 20px;
   color: #dfe4ea;
