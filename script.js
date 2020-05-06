@@ -305,7 +305,7 @@ function makePageForEpisodes(episodeList, index, activitytype) {
   episodeDiv_El.appendChild(episodeTitle_El)
   episodeDiv_El.appendChild(episodeImgDiv_El)
   if(episodeList.image != null){
-    episodeImg_El.src = `${episodeList.image.medium}` 
+    episodeImg_El.src = `${episodeList.image.medium.replace(new RegExp('http', "gi"), 'https')}` 
     episodeImgDiv_El.appendChild(episodeImg_El)
   }
   else{
