@@ -291,7 +291,7 @@ function makePageForEpisodes(episodeList, index, activitytype) {
   episodeSummaryLabel_El.textContent = `Summary`;
   if(episodeList.summary != null){
     if (episodeList.summary != ''){
-      episodeSummary_El.innerHTML = episodeList.summary;
+      episodeSummary_El.innerHTML = (activitytype == 'load') ? pureSummary(episodeList) : episodeList.summary;
     }
     else{
       episodeSummary_El.textContent = 'Nothing to show !!!';

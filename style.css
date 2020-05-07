@@ -16,7 +16,7 @@
   margin: 0px;
   height: 100%;
   animation: FadeIn 1s;
-  overflow: none;
+  overflow-y: overlay;
 }
 ::selection {
   color: white; 
@@ -246,7 +246,7 @@
 .episodeImgDiv_CSS{
   width: 300px;
   height: 168px;
-  margin: 10px auto 10px auto;
+  margin: 10px auto 20px auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -281,7 +281,7 @@
   font-stretch: expanded;
   font-family: 'Scada', sans-serif;
   font-size: 14px;
-  align-items: justify;
+  text-align: justify;
   line-height: 1.5em;
   overflow: auto;
   color: #c8d6e5;
