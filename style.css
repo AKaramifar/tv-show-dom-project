@@ -68,11 +68,11 @@
   font-size: 160px;  
   letter-spacing: 20px;
   margin: -15px 20px auto 100px;
-  color: #2ed573;
+  color: #25CCF7;
   transition: 400ms;
 }
 .titlePartOne_CSS:hover{
-  color: #EE5A24;
+  color: #fc5c65;
   cursor: pointer;
 }
 .titlePartTwo_CSS{
@@ -131,7 +131,7 @@
   border: none;
 }
 .showsListSelect_CSS:focus{
-  outline: 1px solid #ffa502;
+  outline: 1px solid #ff7f50;
 }
 .showsListSelect_CSS *{
   color: #1a1d21;
@@ -153,7 +153,7 @@
   border: none;
 }
 .episodeListSelect_CSS:focus{
-  outline: 1px solid #ffa502;
+  outline: 1px solid #ff7f50;
 }
 .episodeListSelect_CSS *{  
   letter-spacing: 5px;
@@ -176,14 +176,14 @@
   font-size: 14px;
 }
 .episodeInput_CSS:focus{
-  outline: 1px solid #ffa502;
+  outline: 1px solid #ff7f50;
 }
 .episodeInput_CSS::-webkit-input-placeholder{
   color: white;
 }
 
 .searchResualt_CSS{    
-  text-shadow: 0px 0px 5px #cc8500;  
+  text-shadow: 0px 0px 5px #ff7f50;  
   min-width: 100px;
   display: flex;
   align-items: center;
@@ -225,7 +225,7 @@
   cursor: pointer;
   transform: scale(1.01); 
   transition: 200ms;
-  box-shadow: 0px 0px 0px 1px #f39c12;
+  box-shadow: 0px 0px 0px 1px #ff7f50;
 }  
 
 .episodeTitle_CSS {
