@@ -352,14 +352,14 @@ function episodeSearch(allEpisodes, elementParameterToSearch){
     let episodeContainer = JSON.parse(JSON.stringify(episode))      
     episodeContainer.name = `${episode.name} - ${titleCodeGenerator(episode)}`;    
   
-    if (episodeContainer.name.toLowerCase().indexOf(elementParameterToSearch.value) > -1){
+    if (episodeContainer.name.toLowerCase().indexOf(elementParameterToSearch.value.toLowerCase()) > -1){
       episodeContainer.name = episodeContainer.name.replace(new RegExp(elementParameterToSearch.value, "gi"), (match) => `<strong class="highlight_CSS">${match}</strong>`);
       episodeResualt++;
     }
     if(episode.summary != null){
       if (episode.summary != ''){
         episodeContainer.summary = `${pureSummary(episode)}`;
-        if (episodeContainer.summary.toLowerCase().indexOf(elementParameterToSearch.value) > -1){
+        if (episodeContainer.summary.toLowerCase().indexOf(elementParameterToSearch.value.toLowerCase()) > -1){
           episodeContainer.summary = episodeContainer.summary.replace(new RegExp(elementParameterToSearch.value, "gi"), (match) => `<strong class="highlight_CSS">${match}</strong>`);      
           episodeResualt++;
         }    
